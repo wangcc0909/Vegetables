@@ -38,16 +38,20 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="@dimen/dp_100"
-        android:layout_height="@dimen/dp_100"
-        android:padding="@dimen/dp_10"
+        android:layout_width="@dimen/dp_80"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_2"
+        android:layout_marginBottom="@dimen/dp_2"
+        android:layout_height="0dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/obl_line_one"/>
+        app:layout_constraintTop_toBottomOf="@id/obl_line_one"
+        app:layout_constraintBottom_toTopOf="@id/obl_line_two"/>
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_6"
         android:layout_marginTop="@dimen/dp_10"
         android:maxLines="2"
         android:text="asjkljfasld lasdkjflasfjalskjlkgdspoadsf;adfljlfadskjfklsdfjlajflkdfjlkdfjllasfk alfk;lasdf asd;fklasd ;fdsl;kf;s"
@@ -87,7 +91,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:text="查看产品使用说明"
         android:textColor="@color/navibar_color"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="@id/tv_price"
         app:layout_constraintTop_toBottomOf="@+id/tv_count"/>
 
@@ -128,6 +132,7 @@
         android:layout_marginEnd="@dimen/dp_10"
         android:text="共2件"
         app:layout_constraintTop_toTopOf="@id/tv_total_money"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_money"
         app:layout_constraintEnd_toStartOf="@id/tv_sum"/>
 
     <TextView
@@ -138,6 +143,8 @@
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_14"
         android:layout_marginTop="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_4"
         android:paddingStart="@dimen/dp_10"
         android:paddingEnd="@dimen/dp_10"
         android:background="@drawable/text_red_bg"
@@ -153,6 +160,9 @@
         android:paddingStart="@dimen/dp_10"
         android:paddingEnd="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_4"
+        android:paddingBottom="@dimen/dp_4"
+        android:background="@drawable/text_gray_bg"
         app:layout_constraintEnd_toStartOf="@id/tv_payment"
         app:layout_constraintTop_toTopOf="@+id/tv_payment"/>
 </android.support.constraint.ConstraintLayout>

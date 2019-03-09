@@ -8,6 +8,7 @@ import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +19,7 @@ import com.github.jdsjlzx.recyclerview.LRecyclerView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.peaut.vegetables.App
 import com.peaut.vegetables.R
+import com.peaut.vegetables.base.BaseAdapter
 import com.peaut.vegetables.weight.SpacesItemDecoration
 import com.youth.banner.Banner
 import com.youth.banner.BannerConfig
