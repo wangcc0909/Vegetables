@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/matchWrap"
+    android:paddingBottom="@dimen/dp_20"
+    android:paddingTop="@dimen/dp_20">
+
+    <TextView
+        android:id="@+id/tv_my_shop"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="我的店铺"
+        app:layout_constraintEnd_toStartOf="@id/tv_corn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_corn"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="我的余额"
+        app:layout_constraintEnd_toStartOf="@id/tv_shop_order"
+        app:layout_constraintStart_toEndOf="@id/tv_my_shop"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_shop_order"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="门店订单"
+        app:layout_constraintEnd_toStartOf="@id/tv_blank_account"
+        app:layout_constraintStart_toEndOf="@id/tv_corn"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_blank_account"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="银行账户"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_shop_order"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

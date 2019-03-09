@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_180"
+        android:src="@drawable/timg"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_des"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:maxLines="2"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_6"
+        android:textColor="@color/common_black"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_icon"
+        tools:text="我是两行描述,真的要凑两行"/>
+
+    <com.peaut.vegetables.weight.TextViewDrawable
+        android:id="@+id/tv_comments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_4"
+        android:background="@drawable/maybe_like_bg"
+        android:drawableStart="@drawable/ic_menu_black"
+        android:maxLines="2"
+        android:padding="@dimen/dp_4"
+        android:text="我沙流口水法兰克时间哦我就氨基酸离开静安寺单联开关昂了了建安费"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_12"
+        app:isAliganCenter="false"
+        app:layout_constraintTop_toBottomOf="@id/tv_des"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingEnd="@dimen/dp_4"
+        android:paddingStart="@dimen/dp_4"
+        android:paddingTop="@dimen/dp_6"
+        app:layout_constraintTop_toBottomOf="@+id/tv_comments">
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_2"
+            android:text="$ 135.1"
+            android:textColor="@color/navibar_color"
+            android:textSize="@dimen/sp_14"/>
+
+        <TextView
+            android:id="@+id/tv_manager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_6"
+            android:background="@drawable/text_red_empty_bg"
+            android:padding="@dimen/dp_2"
+            android:text="自营"
+            android:textColor="@color/navibar_color"
+            android:textSize="@dimen/sp_12"/>
+
+        <TextView
+            android:id="@+id/tv_special"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_6"
+            android:background="@drawable/text_red_bg"
+            android:padding="@dimen/dp_2"
+            android:text="特价"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_12"/>
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

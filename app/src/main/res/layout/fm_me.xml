@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/myStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_top"
+        android:background="@color/person_center_color"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_150"
+                    android:background="@color/person_center_color"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageButton
+                    android:id="@+id/ib_msg"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_45"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_msg_white"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <ImageButton
+                    android:id="@+id/ib_setting"
+                    android:layout_width="@dimen/dp_40"
+                    android:layout_height="@dimen/dp_45"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_setting"
+                    app:layout_constraintEnd_toStartOf="@id/ib_msg"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <include layout="@layout/user_info_view"/>
+
+            </android.support.constraint.ConstraintLayout>
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_70"
+                android:background="@drawable/me"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_6"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp_40">
+
+                    <TextView
+                        style="@style/wrapWrap"
+                        android:layout_marginStart="@dimen/dp_15"
+                        android:text="我的订单"
+                        android:textColor="@color/common_black"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_all_order"
+                        style="@style/wrapWrap"
+                        android:layout_marginEnd="@dimen/dp_15"
+                        android:drawableEnd="@drawable/ic_arrow_right"
+                        android:text="查看全部"
+                        android:textSize="@dimen/sp_14"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+                <include layout="@layout/linear_margin15_view"/>
+
+                <android.support.constraint.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="@dimen/dp_15"
+                    android:paddingTop="@dimen/dp_15">
+
+                    <TextView
+                        android:id="@+id/tv_payment"
+                        style="@style/orderStatusStyle"
+                        android:drawableTop="@drawable/order_before"
+                        android:text="待付款"
+                        app:layout_constraintEnd_toStartOf="@id/tv_shopped"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_shopped"
+                        style="@style/orderStatusStyle"
+                        android:drawableTop="@drawable/order_before"
+                        android:text="待发货"
+                        app:layout_constraintEnd_toStartOf="@id/tv_received"
+                        app:layout_constraintStart_toEndOf="@id/tv_payment"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_received"
+                        style="@style/orderStatusStyle"
+                        android:drawableTop="@drawable/order_before"
+                        android:text="待收货"
+                        app:layout_constraintEnd_toStartOf="@id/tv_comment"
+                        app:layout_constraintStart_toEndOf="@id/tv_shopped"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_comment"
+                        style="@style/orderStatusStyle"
+                        android:drawableTop="@drawable/order_before"
+                        android:text="评价"
+                        app:layout_constraintEnd_toStartOf="@id/tv_order_after"
+                        app:layout_constraintStart_toEndOf="@id/tv_received"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/tv_order_after"
+                        style="@style/orderStatusStyle"
+                        android:drawableTop="@drawable/order_before"
+                        android:text="退款退货"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/tv_comment"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                </android.support.constraint.ConstraintLayout>
+
+            </LinearLayout>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_4"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="vertical">
+                <include layout="@layout/me_container_linear1"/>
+
+                <include layout="@layout/linear_margin15_view"/>
+
+                <include layout="@layout/me_container_linear2"/>
+
+                <include layout="@layout/linear_margin15_view"/>
+
+                <include layout="@layout/me_container_linear3"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

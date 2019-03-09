@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="common_black">#000000</color>
+    <color name="navibar_color">#E90028</color>
+    <color name="person_center_color">#A3162E</color>
+    <color name="color_normal_bg">#F2F2F2</color>
+    <color name="color_gray">#aaaaaa</color>
+    <color name="color_f4">#F4F4F4</color>
+    <color name="color_f0">#F0F0F0</color>
+    <color name="color_37">#373737</color>
+    <color name="color_212121">#212121</color>
+    <color name="color_232323">#232323</color>
+    <color name="color_DF1C4B">#DF1C4B</color>
+
+    <color name="status_layout_background_color">#EBEBEB</color>
+    <color name="status_layout_tip_text_color">#8a8a8a</color>
+    <color name="status_layout_click_view_text_color">#0084FF</color>
+</resources>

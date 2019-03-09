@@ -1,0 +1,148 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+def PRODUCT_NAME = "Vegetables"
+
+// Create a variable called keystorePropertiesFile, and initialize it to your
+// keystore.properties file, in the rootProject folder.
+def keystorePropertiesFile = rootProject.file("keystore.properties")
+
+// Initialize a new Properties() object called keystoreProperties.
+def keystoreProperties = new Properties()
+
+// Load your keystore.properties file into the keystoreProperties object.
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    signingConfigs {
+        release {
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+        }
+    }
+    defaultConfig {
+        applicationId rootProject.ext.android.applicationId
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        flavorDimensions "release"
+        multiDexEnabled true
+    }
+    buildTypes {
+        release {
+            minifyEnabled true //混淆编译
+            shrinkResources true //移除无用资源
+            zipAlignEnabled true //zipalign优化
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "LOG_DEBUG", "false")//正式版不打印日志
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            signingConfig signingConfigs.release
+            buildConfigField("boolean", "LOG_DEBUG", "true")
+        }
+    }
+
+    //多渠道打包
+    productFlavors {
+        xiaomi {
+            dimension "release"
+        }
+        huawei { dimension "release" }
+        yingyongbao { dimension "release" }
+        wandoujia { dimension "release" }
+    }
+
+    //自动替换清单文件中的渠道号
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+    //release包的命名格式为：产品名_版本号_渠道名.apk
+//debug包的命名格式为：产品名_版本号-debug.apk
+    applicationVariants.all { variant ->
+        variant.outputs.all { output ->
+            def fileName
+            def baseName = "${PRODUCT_NAME}_${defaultConfig.versionName}_${variant.productFlavors[0].name}"
+            if (buildType.name == 'release') {
+                fileName = baseName + ".apk"
+            } else {
+                def debugName = PRODUCT_NAME + "${defaultConfig.versionName}"
+                fileName = debugName + "-debug.apk"
+            }
+            outputFileName = fileName
+        }
+    }
+    lintOptions {
+        disable 'GoogleAppIndexingWarning'
+    }
+}
+
+configurations.all {
+    resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+        def requested = details.requested
+        if (requested.group == 'com.android.support') {
+            if (!requested.name.startsWith("multidex")) {
+                details.useVersion '28.0.0'
+            }
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    api rootProject.ext.dependencies.libKotlinJdk8
+    api rootProject.ext.dependencies.libSupport
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    api rootProject.ext.dependencies.libMultidex
+    api rootProject.ext.dependencies.libUmAnalytics
+    api rootProject.ext.dependencies.libUmCommon
+    api rootProject.ext.dependencies.libBanner
+    api rootProject.ext.dependencies.libGson
+    //    api rootProject.ext.dependencies.libRxjava
+    api rootProject.ext.dependencies.libRxKotlin
+    api rootProject.ext.dependencies.libRxAndroid
+    api rootProject.ext.dependencies.libRetrofit
+    api rootProject.ext.dependencies.libRetrofitCovert
+    api rootProject.ext.dependencies.libRetrofitAdapter
+    api rootProject.ext.dependencies.libOkhttp3loggingInterceptor
+    api rootProject.ext.dependencies.libRxlifecycleKotlin
+    api rootProject.ext.dependencies.libLifecycle
+    api rootProject.ext.dependencies.libGlide
+    kapt rootProject.ext.dependencies.kaptGlide
+    api rootProject.ext.dependencies.libDesign
+    api rootProject.ext.dependencies.libRecyclerview
+    api rootProject.ext.dependencies.libCardview
+    api rootProject.ext.dependencies.libLRcyclerview
+    api rootProject.ext.dependencies.libPalette
+    //    api rootProject.ext.dependencies.libRhinoAndroid
+    //    api rootProject.ext.dependencies.libJsoup
+    api rootProject.ext.dependencies.libFlexbox
+    api rootProject.ext.dependencies.libCircleimageview
+    api rootProject.ext.dependencies.libAnkoSqlite
+    debugImplementation rootProject.ext.dependencies.debugLeakCanaryActivity
+    releaseImplementation rootProject.ext.dependencies.releaseLeakCanaryActivity
+    debugImplementation rootProject.ext.dependencies.debugLeakCanaryFragment
+    debugImplementation rootProject.ext.dependencies.debugChuck
+    releaseImplementation rootProject.ext.dependencies.releaseChuck
+}
+kapt {
+    generateStubs = true
+}

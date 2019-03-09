@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/myStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_top"
+        android:background="@android:color/white"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@android:color/white">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="我的订单"
+            android:textColor="@color/color_37"
+            android:textSize="@dimen/sp_14"/>
+
+        <ImageButton
+            android:id="@+id/ib_back"
+            android:layout_width="@dimen/dp_50"
+            android:layout_height="match_parent"
+            android:background="@drawable/ib_bg_selector"
+            android:src="@drawable/ic_left_black"/>
+
+        <ImageButton
+            android:id="@+id/ib_more"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_more_horiz_black"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ib_bg_selector"/>
+
+        <ImageButton
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:src="@drawable/ic_search_black"
+            android:background="@drawable/ib_bg_selector"
+            android:layout_toStartOf="@+id/ib_more"/>
+    </RelativeLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_4"/>
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:tabIndicatorColor="@color/color_DF1C4B"
+        app:tabSelectedTextColor="@color/color_DF1C4B"
+        app:tabIndicatorHeight="@dimen/dp_2">
+
+    </android.support.design.widget.TabLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_4"/>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v4.view.ViewPager>
+
+</LinearLayout>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/matchWrap"
+    android:paddingBottom="@dimen/dp_20"
+    android:paddingTop="@dimen/dp_20">
+
+    <TextView
+        android:id="@+id/tv_update"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="下载更新"
+        app:layout_constraintEnd_toStartOf="@id/tv_question"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_question"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="常见问题"
+        app:layout_constraintEnd_toStartOf="@id/tv_server_tel"
+        app:layout_constraintStart_toEndOf="@id/tv_update"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_server_tel"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="客户电话"
+        app:layout_constraintEnd_toStartOf="@id/tv_feedback"
+        app:layout_constraintStart_toEndOf="@id/tv_question"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_feedback"
+        style="@style/orderStatusStyle"
+        android:drawableTop="@drawable/order_before"
+        android:text="意见反馈"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_server_tel"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

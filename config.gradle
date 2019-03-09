@@ -1,0 +1,78 @@
+def versions = [:]
+
+versions.support = "28.0.0"
+versions.constraint = "1.1.3"
+versions.multidex = "1.0.3"
+versions.um_analytics = "8.0.0"
+versions.um_common = "2.0.0"
+versions.banner = "1.4.10"
+
+//versions.rxjava = "2.2.6"
+versions.gson = "2.8.5"
+versions.rxKotlin = "2.3.0"
+versions.rxAndroid = "2.1.1"
+versions.retrofit = "2.5.0"
+versions.okhttp3 = "3.11.0"
+versions.glide = "4.9.0"
+
+versions.rxlifecycle_kotlin = "3.0.0"
+versions.lifecycle = "1.1.1"
+versions.rhino_android = "1.0"
+versions.jsoup = "1.11.3"
+versions.flexbox = "1.0.0"
+versions.circleimageview = "3.0.0"
+versions.leakcanary = "1.6.3"
+versions.lRecyclerview = "1.5.4.3"
+
+versions.anko = "0.10.8"
+versions.chuck = "1.1.0"
+ext.kotlin_version = '1.3.21'
+
+ext {
+    android = [
+            compileSdkVersion: 28,
+            buildToolsVersion: '28.0.3',
+            minSdkVersion    : 21,
+            targetSdkVersion : 28,
+            versionCode      : 1,
+            versionName      : "1.0",
+            applicationId    : "com.peaut.vegetables"
+    ]
+
+    dependencies = [
+            libKotlinJdk8               : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version",
+            libSupport                  : "com.android.support:appcompat-v7:${versions.support}",
+            libMultidex                 : "com.android.support:multidex:${versions.multidex}",
+            libUmAnalytics              : "com.umeng.umsdk:analytics:${versions.um_analytics}",
+            libUmCommon                 : "com.umeng.umsdk:common:${versions.um_common}",
+            libBanner                   : "com.youth.banner:banner:${versions.banner}",
+            libGson                     : "com.google.code.gson:gson:${versions.gson}",
+            libRxKotlin                 : "io.reactivex.rxjava2:rxkotlin:${versions.rxKotlin}",
+//            libRxjava     : "io.reactivex.rxjava2:rxjava:${versions.rxjava}",
+            libRxAndroid                : "io.reactivex.rxjava2:rxandroid:${versions.rxAndroid}",
+            libRetrofit                 : "com.squareup.retrofit2:retrofit:${versions.retrofit}",
+            libRetrofitCovert           : "com.squareup.retrofit2:converter-gson:${versions.retrofit}",
+            libRetrofitAdapter          : "com.squareup.retrofit2:adapter-rxjava2:${versions.retrofit}",
+            libOkhttp3loggingInterceptor: "com.squareup.okhttp3:logging-interceptor:${versions.okhttp3}",
+            libRxlifecycleKotlin        : "com.trello.rxlifecycle3:rxlifecycle-kotlin:${versions.rxlifecycle_kotlin}",
+            libLifecycle                : "android.arch.lifecycle:extensions:${versions.lifecycle}",
+            libGlide                    : "com.github.bumptech.glide:glide:${versions.glide}",
+            kaptGlide                   : "com.github.bumptech.glide:compiler:${versions.glide}",
+            libDesign                   : "com.android.support:design:${versions.support}",
+            libRecyclerview             : "com.android.support:recyclerview-v7:${versions.support}",
+            libCardview                 : "com.android.support:cardview-v7:${versions.support}",
+            libLRcyclerview             : "com.github.jdsjlzx:LRecyclerView:${versions.lRecyclerview}",
+            libPalette                  : "com.android.support:palette-v7:${versions.support}",//颜色提取
+            libRhinoAndroid             : "io.apisense:rhino-android:${versions.rhino_android}",//java js 引擎
+            libJsoup                    : "org.jsoup:jsoup:${versions.jsoup}",//html 解析
+            libFlexbox                  : "com.google.android:flexbox:${versions.flexbox}",
+            libCircleimageview          : "de.hdodenhof:circleimageview:${versions.circleimageview}",
+            libAnkoSqlite               : "org.jetbrains.anko:anko-sqlite:${versions.anko}",
+            debugLeakCanaryActivity     : "com.squareup.leakcanary:leakcanary-android:${versions.leakcanary}",
+            releaseLeakCanaryActivity   : "com.squareup.leakcanary:leakcanary-android-no-op:${versions.leakcanary}",
+            debugLeakCanaryFragment     : "com.squareup.leakcanary:leakcanary-support-fragment:${versions.leakcanary}",
+            debugChuck                  : "com.readystatesoftware.chuck:library:${versions.chuck}",//    很好用的api输出框架
+            releaseChuck                : "com.readystatesoftware.chuck:library-no-op:${versions.chuck}"
+
+    ]
+}

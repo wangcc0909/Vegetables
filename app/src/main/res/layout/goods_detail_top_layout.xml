@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.peaut.vegetables.weight.IOSScrollView
+    android:id="@+id/scrollView"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.youth.banner.Banner
+            android:id="@+id/mBanner"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_360"
+            app:image_scale_type="center_crop"
+            app:is_auto_play="false"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </com.youth.banner.Banner>
+
+        <View
+            android:id="@+id/top_line_one"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_4"
+            android:background="@color/color_f4"
+            app:layout_constraintTop_toBottomOf="@+id/mBanner"/>
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_10"
+            android:textColor="@color/navibar_color"
+            android:textSize="@dimen/sp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_line_one"
+            android:text="$18.6/斤"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/text_red_bg"
+            android:padding="@dimen/dp_2"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_10"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_price"
+            app:layout_constraintStart_toEndOf="@id/tv_price"
+            app:layout_constraintTop_toTopOf="@+id/tv_price"
+            android:text="特价"/>
+
+        <TextView
+            android:id="@+id/tv_des"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLines="2"
+            android:paddingEnd="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_10"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintTop_toBottomOf="@+id/tv_price"
+            android:text="我就是商品的描述之类的信息 但是就是不知道是什么玩意,凑够两行就好了"/>
+
+        <TextView
+            android:id="@+id/tv_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:drawablePadding="@dimen/dp_4"
+            android:drawableStart="@drawable/ic_place_black_24dp"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_des"
+            android:text="盐步市场"/>
+
+        <View
+            android:id="@+id/top_line_two"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_4"
+            android:layout_marginTop="@dimen/dp_10"
+            android:background="@color/color_f4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
+
+        <TextView
+            android:id="@+id/tv_comments"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_15"
+            android:paddingStart="@dimen/dp_10"
+            android:textColor="@color/color_37"
+            android:textSize="@dimen/sp_14"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_line_two"
+            tools:text="商品评价    (465421)"/>
+
+        <TextView
+            android:id="@+id/goods_star"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_arrow_right"
+            android:drawablePadding="@dimen/dp_4"
+            android:paddingBottom="@dimen/dp_15"
+            android:paddingTop="@dimen/dp_15"
+            android:paddingEnd="@dimen/dp_10"
+            android:textColor="@color/navibar_color"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/top_line_two"
+            tools:text="好评 98.7%"/>
+
+        <View
+            android:id="@+id/top_line_three"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_4"
+            android:background="@color/color_f4"
+            app:layout_constraintTop_toBottomOf="@+id/tv_comments"/>
+
+        <LinearLayout
+            android:id="@+id/ll_middle_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/top_line_three">
+            <include layout="@layout/item_supplier_layout"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_60"
+            android:background="@color/color_f4"
+            android:gravity="center"
+            android:text="继续拖动，查看图文详情"
+            android:textColor="@color/color_212121"
+            android:textSize="@dimen/sp_15"
+            app:layout_constraintTop_toBottomOf="@+id/ll_middle_view" />
+    </android.support.constraint.ConstraintLayout>
+</com.peaut.vegetables.weight.IOSScrollView>

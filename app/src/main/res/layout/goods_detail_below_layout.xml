@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <View
+        android:id="@+id/view_div"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_1"
+        android:background="@color/color_f4"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_collection"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="match_parent"
+        android:drawableTop="@drawable/ic_menu_black"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        android:text="收藏"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/view_div"/>
+
+    <View
+        android:layout_width="@dimen/dp_0_1"
+        android:layout_height="match_parent"
+        android:background="@color/color_37"
+        app:layout_constraintStart_toEndOf="@id/tv_collection"/>
+
+    <TextView
+        android:id="@+id/tv_car"
+        android:layout_width="@dimen/dp_60"
+        android:layout_height="match_parent"
+        android:drawableTop="@drawable/ic_shopping_cart_black"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:text="购物车"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toEndOf="@id/tv_collection"
+        app:layout_constraintBottom_toTopOf="@+id/view_div"/>
+
+    <TextView
+        android:id="@+id/tv_join_car"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:background="@color/color_212121"
+        android:textSize="@dimen/sp_14"
+        android:text="加入购物车"
+        android:gravity="center"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toEndOf="@id/tv_car"
+        app:layout_constraintEnd_toStartOf="@id/tv_buy"/>
+
+    <TextView
+        android:id="@+id/tv_buy"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:textColor="@android:color/white"
+        android:background="@color/navibar_color"
+        android:text="立即购买"
+        android:gravity="center"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toEndOf="@id/tv_join_car"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

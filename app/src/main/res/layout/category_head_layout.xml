@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_cabbage"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="白菜"
+            android:textColor="@color/common_black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_cauliflower"/>
+
+        <TextView
+            android:id="@+id/tv_cauliflower"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="花菜"
+            android:textColor="@color/common_black"
+            app:layout_constraintStart_toEndOf="@id/tv_cabbage"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_potato"/>
+
+        <TextView
+            android:id="@+id/tv_potato"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="土豆"
+            android:textColor="@color/common_black"
+            app:layout_constraintStart_toEndOf="@id/tv_cauliflower"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_eggplant"/>
+
+        <TextView
+            android:id="@+id/tv_eggplant"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="茄子"
+            android:textColor="@color/common_black"
+            app:layout_constraintStart_toEndOf="@id/tv_potato"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_baby_cabbage"/>
+
+        <TextView
+            android:id="@+id/tv_baby_cabbage"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="娃娃菜"
+            android:textColor="@color/common_black"
+            app:layout_constraintStart_toEndOf="@id/tv_eggplant"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:paddingBottom="@dimen/dp_10"
+        android:paddingTop="@dimen/dp_10">
+
+        <TextView
+            android:id="@+id/tv_lettuce"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="生菜"
+            android:textColor="@color/common_black"
+            app:layout_constraintEnd_toStartOf="@id/tv_celery"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_celery"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="芹菜"
+            android:textColor="@color/common_black"
+            app:layout_constraintEnd_toStartOf="@id/tv_pumpkin"
+            app:layout_constraintStart_toEndOf="@id/tv_lettuce"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_pumpkin"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="南瓜"
+            android:textColor="@color/common_black"
+            app:layout_constraintEnd_toStartOf="@id/tv_beans"
+            app:layout_constraintStart_toEndOf="@id/tv_celery"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_beans"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="豆角"
+            android:textColor="@color/common_black"
+            app:layout_constraintEnd_toStartOf="@id/tv_wax_gourd"
+            app:layout_constraintStart_toEndOf="@id/tv_pumpkin"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <TextView
+            android:id="@+id/tv_wax_gourd"
+            style="@style/orderStatusStyle"
+            android:drawableTop="@drawable/timg"
+            android:text="冬瓜"
+            android:textColor="@color/common_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_beans"
+            app:layout_constraintTop_toTopOf="parent"/>
+    </android.support.constraint.ConstraintLayout>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_4"/>
+
+    <include layout="@layout/tab_select_layout"/>
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_4"/>
+
+</LinearLayout>

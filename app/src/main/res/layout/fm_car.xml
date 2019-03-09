@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/myStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_top"
+        android:background="@android:color/white"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_45"
+        android:background="@android:color/white">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/common_black"
+            android:textSize="@dimen/sp_16"
+            android:text="@string/init_car_title"/>
+
+        <ImageButton
+            android:id="@+id/ib_msg"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:background="@drawable/ib_bg_selector"
+            android:src="@drawable/ic_message2"/>
+
+        <TextView
+            android:id="@+id/tv_edit"
+            android:layout_width="@dimen/dp_40"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@id/ib_msg"
+            android:gravity="center"
+            android:text="@string/tv_editor"
+            android:textColor="#4b4b4b"
+            android:background="@drawable/ib_bg_selector"
+            android:textSize="@dimen/sp_14"/>
+    </RelativeLayout>
+
+    <com.github.jdsjlzx.recyclerview.LRecyclerView
+        android:id="@+id/mRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/dp_6"
+        android:layout_marginEnd="@dimen/dp_6"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+    </com.github.jdsjlzx.recyclerview.LRecyclerView>
+
+    <!--这里加一个空布局-->
+
+    <include layout="@layout/linear_view"/>
+
+    <RelativeLayout
+        android:id="@+id/rl_bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:background="@android:color/white">
+
+        <CheckBox
+            android:id="@+id/checkbox"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/dp_8"
+            android:paddingStart="@dimen/dp_2"
+            android:paddingEnd="@dimen/dp_2"
+            android:layout_centerVertical="true"
+            android:text="@string/cb_all"
+            android:button="@drawable/check_selector"/>
+
+        <FrameLayout
+            android:id="@+id/fl_container"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true">
+
+            <TextView
+                android:id="@+id/tv_delete"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:background="@drawable/item_button_submit_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/tv_delete"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/tv_commit"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="match_parent"
+                android:background="@drawable/item_button_submit_selector"
+                android:clickable="true"
+                android:gravity="center"
+                android:text="@string/init_commit"
+                android:textColor="@android:color/white"
+                android:textSize="@dimen/sp_14"/>
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_middle_view"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toStartOf="@+id/fl_container"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingEnd="@dimen/dp_6"
+            android:paddingStart="@dimen/dp_6">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/total_sum"
+                android:textColor="@color/common_black"/>
+
+            <TextView
+                android:id="@+id/tv_total_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/navibar_color"
+                android:textSize="@dimen/sp_14"
+                android:text="@string/init_total_money"/>
+        </LinearLayout>
+    </RelativeLayout>
+</LinearLayout>
