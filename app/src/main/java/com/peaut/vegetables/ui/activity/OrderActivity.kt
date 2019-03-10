@@ -33,6 +33,13 @@ class OrderActivity : BaseActivity() {
 
     }
 
+    override fun initListener(savedInstanceState: Bundle?) {
+        super.initListener(savedInstanceState)
+        ib_back.setOnClickListener {
+            onBackPressed()
+        }
+    }
+
     override fun initViewModel(): ViewModel? {
        return null
     }

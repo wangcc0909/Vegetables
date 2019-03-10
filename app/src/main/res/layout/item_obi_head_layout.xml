@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
         android:text="2019-03-09"
-        android:textColor="@color/color_37"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -23,8 +22,7 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
         android:text="待付款"
-        android:textColor="@color/color_37"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -54,9 +52,10 @@
         android:layout_marginStart="@dimen/dp_6"
         android:layout_marginTop="@dimen/dp_10"
         android:maxLines="2"
+        android:lineSpacingMultiplier="1.1"
         android:text="asjkljfasld lasdkjflasfjalskjlkgdspoadsf;adfljlfadskjfklsdfjlajflkdfjlkdfjllasfk alfk;lasdf asd;fklasd ;fdsl;kf;s"
+        android:textSize="@dimen/sp_12"
         android:textColor="@color/color_37"
-        android:textSize="@dimen/sp_14"
         app:layout_constraintEnd_toStartOf="@id/tv_price"
         app:layout_constraintStart_toEndOf="@id/iv_icon"
         app:layout_constraintTop_toBottomOf="@id/obl_line_one"/>
@@ -68,8 +67,7 @@
         android:layout_marginEnd="@dimen/dp_10"
         android:layout_marginStart="@dimen/dp_10"
         android:text="12.3"
-        android:textColor="@color/color_37"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_title"
         app:layout_constraintTop_toTopOf="@id/tv_title"/>
@@ -78,9 +76,9 @@
         android:id="@+id/tv_count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="*2"
+        android:text="x2"
         android:textColor="@color/color_gray"
-        android:textSize="@dimen/sp_12"
+        android:textSize="@dimen/sp_10"
         app:layout_constraintRight_toRightOf="@id/tv_price"
         app:layout_constraintTop_toBottomOf="@id/tv_price"/>
 
@@ -111,7 +109,7 @@
         android:layout_marginTop="@dimen/dp_10"
         android:text="$ 169"
         android:textColor="@color/navibar_color"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@id/tv_price"
         app:layout_constraintTop_toBottomOf="@id/obl_line_two"/>
@@ -123,12 +121,12 @@
         app:layout_constraintTop_toTopOf="@id/tv_total_money"
         app:layout_constraintEnd_toStartOf="@id/tv_total_money"
         android:text="应付总额: "
-        android:textSize="@dimen/sp_14"/>
+        android:textSize="@dimen/sp_12"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_12"
+        android:textSize="@dimen/sp_10"
         android:layout_marginEnd="@dimen/dp_10"
         android:text="共2件"
         app:layout_constraintTop_toTopOf="@id/tv_total_money"
@@ -141,7 +139,7 @@
         android:layout_height="wrap_content"
         android:text="立即付款"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         android:layout_marginTop="@dimen/dp_10"
         android:paddingTop="@dimen/dp_4"
         android:paddingBottom="@dimen/dp_4"
@@ -156,7 +154,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="取消订单"
-        android:textSize="@dimen/sp_14"
+        android:textSize="@dimen/sp_12"
         android:paddingStart="@dimen/dp_10"
         android:paddingEnd="@dimen/dp_10"
         android:layout_marginEnd="@dimen/dp_10"
