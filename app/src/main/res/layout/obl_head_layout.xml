@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/headRecyclerView"
         android:layout_width="match_parent"
@@ -10,4 +11,29 @@
 
     </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+    <RelativeLayout
+        android:id="@+id/ll_middle_view"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_200"
+        android:background="@android:color/white"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/iv_notice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/timg"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/iv_notice"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/dp_15"
+            android:text="还没有相关订单"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

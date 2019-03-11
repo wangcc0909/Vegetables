@@ -70,7 +70,7 @@ abstract class BaseAdapter<T>(private var context: Context) : RecyclerView.Adapt
         notifyDataSetChanged()
     }
 
-    fun getData(): List<T> {
+    fun getData(): ArrayList<T> {
         return mData
     }
 }
