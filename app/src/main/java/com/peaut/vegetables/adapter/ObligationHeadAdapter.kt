@@ -18,7 +18,7 @@ import com.peaut.vegetables.util.loadFromUrl
  */
 class ObligationHeadAdapter(context: Context) : BaseAdapter<ProductItem>(context) {
     private var mListener: OnTextViewClickListener? = null
-    override fun getItemLayoutId(): Int = R.layout.item_obi_head_layout
+    override fun getItemLayoutId(): Int = R.layout.item_obi_pay_layout
 
     override fun onBindView(holder: BaseViewHolder, position: Int) {
         val ivIcon = holder.getView<ImageView>(R.id.iv_icon)
@@ -31,7 +31,8 @@ class ObligationHeadAdapter(context: Context) : BaseAdapter<ProductItem>(context
         tvCancel.setOnClickListener {
             Log.e("listSize","${getData().size}  position = ${holder.adapterPosition}")
             getData().removeAt(holder.adapterPosition)
-            notifyItemRemoved(position)
+//            notifyItemRemoved(position)
+            notifyDataSetChanged()
             mListener?.onTextViewClick(holder.adapterPosition)
         }
     }

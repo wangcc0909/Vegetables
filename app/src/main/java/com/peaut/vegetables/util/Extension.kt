@@ -3,11 +3,14 @@ package com.peaut.vegetables.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.support.annotation.DrawableRes
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -56,6 +59,11 @@ fun LRecyclerView.gridInit(context: Context, adapter: LRecyclerViewAdapter, span
             spacing, spacing, span, ContextCompat.getColor(context,R.color.color_f4)))
 }
 
+fun RecyclerView.itemDecoration(context: Context,@DrawableRes id: Int = R.drawable.divider){
+    val decoration = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
+    decoration.setDrawable(ContextCompat.getDrawable(context,id)!!)
+    this.addItemDecoration(decoration)
+}
 //不带下拉刷新
 fun LRecyclerView.listInit(context: Context, adapter: LRecyclerViewAdapter) {
     val manager = LinearLayoutManager(context)
