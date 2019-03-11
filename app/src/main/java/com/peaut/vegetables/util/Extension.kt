@@ -54,7 +54,7 @@ fun LRecyclerView.gridInit(context: Context, adapter: LRecyclerViewAdapter, span
     this.setHasFixedSize(true)
 //    this.setLoadMoreEnabled(false)
     this.setPullRefreshEnabled(false)
-    val spacing = resources.getDimensionPixelSize(R.dimen.dp_4)
+    val spacing = resources.getDimensionPixelSize(R.dimen.dp_10)
     this.addItemDecoration(SpacesItemDecoration.newInstance(
             spacing, spacing, span, ContextCompat.getColor(context,R.color.color_f4)))
 }
@@ -73,7 +73,7 @@ fun LRecyclerView.listInit(context: Context, adapter: LRecyclerViewAdapter) {
     this.setPullRefreshEnabled(false)
     val divider = DividerDecoration
             .Builder(context)
-            .setHeight(R.dimen.dp_4)
+            .setHeight(R.dimen.dp_1)
             .setColorResource(R.color.color_normal_bg)
             .build()
     this.addItemDecoration(divider)

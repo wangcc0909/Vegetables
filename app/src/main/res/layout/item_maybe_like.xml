@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/me_white_bg"
-    app:cardCornerRadius="@dimen/dp_6"
+    app:cardCornerRadius="@dimen/dp_10"
     app:cardElevation="0dp">
 
     <android.support.constraint.ConstraintLayout
@@ -71,8 +71,9 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/dp_2"
                 android:text="$ 135.1"
+                android:textStyle="bold"
                 android:textColor="@color/navibar_color"
-                android:textSize="@dimen/sp_14"/>
+                android:textSize="@dimen/sp_16"/>
 
             <TextView
                 android:id="@+id/tv_manager"

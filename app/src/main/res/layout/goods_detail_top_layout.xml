@@ -26,7 +26,7 @@
         <View
             android:id="@+id/top_line_one"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_4"
+            android:layout_height="@dimen/dp_10"
             android:background="@color/color_f4"
             app:layout_constraintTop_toBottomOf="@+id/mBanner"/>
 
@@ -35,9 +35,10 @@
             android:id="@+id/tv_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="@dimen/dp_10"
+            android:padding="@dimen/dp_15"
             android:textColor="@color/navibar_color"
-            android:textSize="@dimen/sp_16"
+            android:textSize="@dimen/sp_18"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/top_line_one"
             android:text="$18.6/斤"/>
@@ -59,11 +60,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:paddingEnd="@dimen/dp_10"
-            android:paddingStart="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_15"
+            android:paddingStart="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_5"
             android:textColor="@color/common_black"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_16"
             android:lineSpacingMultiplier="1.1"
             app:layout_constraintTop_toBottomOf="@+id/tv_price"
             android:text="我就是商品的描述之类的信息 但是就是不知道是什么玩意,凑够两行就好了"/>
@@ -72,9 +73,9 @@
             android:id="@+id/tv_address"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_10"
+            android:layout_marginStart="@dimen/dp_15"
             android:layout_marginTop="@dimen/dp_15"
-            android:layout_marginBottom="@dimen/dp_15"
+            android:layout_marginBottom="@dimen/dp_20"
             android:drawablePadding="@dimen/dp_4"
             android:drawableStart="@drawable/ic_place_black_24dp"
             android:gravity="center"
@@ -85,7 +86,7 @@
         <View
             android:id="@+id/top_line_two"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_4"
+            android:layout_height="@dimen/dp_10"
             android:layout_marginTop="@dimen/dp_10"
             android:background="@color/color_f4"
             app:layout_constraintTop_toBottomOf="@+id/tv_address"/>
@@ -96,7 +97,7 @@
             android:layout_height="wrap_content"
             android:paddingBottom="@dimen/dp_15"
             android:paddingTop="@dimen/dp_15"
-            android:paddingStart="@dimen/dp_10"
+            android:paddingStart="@dimen/dp_15"
             android:textColor="@color/color_37"
             android:textSize="@dimen/sp_14"
             app:layout_constraintStart_toStartOf="parent"
@@ -111,7 +112,7 @@
             android:drawablePadding="@dimen/dp_4"
             android:paddingBottom="@dimen/dp_15"
             android:paddingTop="@dimen/dp_15"
-            android:paddingEnd="@dimen/dp_10"
+            android:paddingEnd="@dimen/dp_15"
             android:textColor="@color/navibar_color"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_line_two"
@@ -120,7 +121,7 @@
         <View
             android:id="@+id/top_line_three"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_4"
+            android:layout_height="@dimen/dp_10"
             android:background="@color/color_f4"
             app:layout_constraintTop_toBottomOf="@+id/tv_comments"/>
 
