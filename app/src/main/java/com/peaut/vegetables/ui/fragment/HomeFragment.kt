@@ -2,6 +2,7 @@ package com.peaut.vegetables.ui.fragment
 
 import android.arch.lifecycle.ViewModel
 import android.view.View
+import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
@@ -9,6 +10,7 @@ import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.HomeAdapter
 import com.peaut.vegetables.model.HomeItem
 import com.peaut.vegetables.ui.activity.CategoryVegetablesActivity
+import com.peaut.vegetables.ui.activity.MessageActivity
 import com.peaut.vegetables.ui.activity.SearchActivity
 import com.peaut.vegetables.util.*
 import com.peaut.vegetables.view.BaseFragment
@@ -26,6 +28,7 @@ class HomeFragment: BaseFragment(){
     private lateinit var mHomeCategory1: LinearLayout
     private lateinit var mHomeCategory2: LinearLayout
     private lateinit var mHomeCategory3: LinearLayout
+    private lateinit var ibMsg: ImageButton
     private lateinit var mTvRcSearch: TextView
     override fun getLayoutId(): Int = R.layout.fm_home
 
@@ -41,6 +44,7 @@ class HomeFragment: BaseFragment(){
         val headBanner = requireContext().inflate(R.layout.home_head_banner)
         mTvRcSearch = headBanner.findViewById(R.id.tv_rc_search)
         val mBanner = headBanner.findViewById<Banner>(R.id.mBanner)
+        ibMsg = headBanner.findViewById(R.id.ib_msg)
         mHomeCategory1 = headBanner.findViewById(R.id.home_linearLayout1)
         mHomeCategory2 = headBanner.findViewById(R.id.home_linearLayout2)
         mHomeCategory3 = headBanner.findViewById(R.id.home_linearLayout3)
@@ -72,6 +76,9 @@ class HomeFragment: BaseFragment(){
         mTvRcSearch.setOnClickListener {
 //            requireContext().startActivity<SearchActivity>()
             requireActivity().startActivityWithAnimation<SearchActivity>(mTvRcSearch,getString(R.string.search_hint))
+        }
+        ibMsg.setOnClickListener {
+            requireActivity().startActivity<MessageActivity>()
         }
     }
 }
