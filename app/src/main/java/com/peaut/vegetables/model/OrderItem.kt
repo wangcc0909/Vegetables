@@ -11,6 +11,6 @@ import com.peaut.vegetables.common.Constant
  */
 data class OrderItem(val title: String,val icon: String,val price: Float,val count: Int,val viewType: Int = Constant.ITEM_ORDER_TYPE): MultiItemEntity{
     override fun getItemType(): Int {
-        return Constant.ITEM_ORDER_TYPE
+        return this.viewType
     }
 }

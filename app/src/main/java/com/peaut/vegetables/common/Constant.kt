@@ -16,6 +16,9 @@ class Constant{
         const val ITEM_ORDER_TYPE = 1
         const val ITEM_TITLE_TYPE = 2
         const val ITEM_COMMENT_TYPE = 3
-        const val ITEM_DELIVERY_TYPE = 1
+        const val ITEM_COMPLETE_TYPE = 1
+        const val ITEM_OBLIGATION_TYPE = 2
+        const val ITEM_DELIVERY_TYPE = 3
+        const val ITEM_TAKE_GOODS_TYPE = 4
     }
 }

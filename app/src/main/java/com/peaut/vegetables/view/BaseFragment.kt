@@ -4,6 +4,7 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -215,28 +216,28 @@ abstract class BaseFragment: Fragment(), OnStatusLayoutClickListener {
      * 用户不可见
      */
     open fun onUserInvisible() {
-//        Log.e("fragment","onUserInvisible 走了")
+        Log.e("fragment","onUserInvisible 走了")
     }
 
     /**
      * 用户第一次不可见
      */
     open fun onFirstUserInvisible() {
-//        Log.e("fragment","onFirstUserInvisible 走了")
+        Log.e("fragment","onFirstUserInvisible 走了")
     }
 
     /**
      * 用户可见
      */
     open fun onUserVisible() {
-//        Log.e("fragment","onUserVisible 走了")
+        Log.e("fragment","onUserVisible 走了")
     }
 
     /**
      * 用户第一次可见
      */
     open fun onFirstUserVisible() {
-//        Log.e("fragment","onFirstUserVisible 走了")
+        Log.e("fragment","onFirstUserVisible 走了")
     }
 
     override fun onEmptyViewClick(view: View) {

@@ -54,6 +54,7 @@ class TakeGoodsFragment: BaseFragment(){  //待收货
         })
     }
 
+    //直接进入这个fragment不会走这个方法  走onFirstUserVisible
     override fun onUserVisible() {
         super.onUserVisible()
         val title = "深刻了发设计费爱上了副科级按理说文件安啦是第几个拉设计费拉设计大方"

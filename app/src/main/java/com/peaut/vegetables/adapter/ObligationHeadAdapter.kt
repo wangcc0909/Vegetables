@@ -7,6 +7,7 @@ import android.widget.TextView
 import com.peaut.vegetables.R
 import com.peaut.vegetables.base.BaseAdapter
 import com.peaut.vegetables.base.BaseViewHolder
+import com.peaut.vegetables.listener.OnTextViewClickListener
 import com.peaut.vegetables.model.ProductItem
 import com.peaut.vegetables.util.loadFromUrl
 
@@ -35,10 +36,6 @@ class ObligationHeadAdapter(context: Context) : BaseAdapter<ProductItem>(context
             notifyDataSetChanged()
             mListener?.onTextViewClick(holder.adapterPosition)
         }
-    }
-
-    interface OnTextViewClickListener {
-        fun onTextViewClick(position: Int)
     }
 
     fun setOnTextViewClickListener(l: OnTextViewClickListener) {
