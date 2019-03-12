@@ -91,14 +91,12 @@ class ProductDetailActivity : BaseActivity() {
     private fun checkGoodsAnswer() {
         tv_answer.isSelected = true
         tv_product_des.isSelected = false
-        bottom_line_two.text = "小考拉答疑"
         switchFragment(currentFragment!!, mGoodsAnswerFragment)
     }
 
     private fun checkGoodsDes() {
         tv_product_des.isSelected = true
         tv_answer.isSelected = false
-        bottom_line_two.text = "图文详情"
         switchFragment(currentFragment!!, mGoodsDesFragment)
     }
 

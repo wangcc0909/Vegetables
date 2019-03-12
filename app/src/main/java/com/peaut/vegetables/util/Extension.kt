@@ -74,7 +74,7 @@ fun LRecyclerView.listInit(context: Context, adapter: LRecyclerViewAdapter) {
     val divider = DividerDecoration
             .Builder(context)
             .setHeight(R.dimen.dp_1)
-            .setColorResource(R.color.color_normal_bg)
+            .setColorResource(R.color.color_f4)
             .build()
     this.addItemDecoration(divider)
 }
