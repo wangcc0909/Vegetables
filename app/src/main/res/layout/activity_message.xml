@@ -23,7 +23,7 @@
             android:layout_height="match_parent"
             android:text="消息中心"
             android:gravity="center"
-            android:textSize="@dimen/sp_14"
+            android:textSize="@dimen/sp_16"
             android:textColor="@color/color_37"/>
 
         <ImageButton
