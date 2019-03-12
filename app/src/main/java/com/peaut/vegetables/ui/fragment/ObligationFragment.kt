@@ -6,6 +6,7 @@ import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.ObligationAdapter
 import com.peaut.vegetables.base.MultiItemEntity
 import com.peaut.vegetables.common.Constant
+import com.peaut.vegetables.listener.OnTextViewClickListener
 import com.peaut.vegetables.model.EmptyItem
 import com.peaut.vegetables.model.OrderItem
 import com.peaut.vegetables.model.PickItem
@@ -37,7 +38,7 @@ class ObligationFragment : BaseFragment() {  //待付款
             val viewType = adapter.getItemViewType(position)
             return@setSpanSizeLookup if (viewType == Constant.ITEM_COMMENT_TYPE) 1 else 2
         }
-        adapter.setOnTextViewClickListener(object : ObligationAdapter.OnTextViewClickListener{
+        adapter.setOnTextViewClickListener(object : OnTextViewClickListener {
             override fun onTextViewClick(position: Int) {
                 var isHasOrder = false
                 for (item in adapter.getData()){

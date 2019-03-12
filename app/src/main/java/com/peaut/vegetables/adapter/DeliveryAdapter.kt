@@ -16,37 +16,37 @@ import com.peaut.vegetables.util.loadFromUrl
 /**
  * @author peaut
  * @package  com.peaut.vegetables.adapter
- * @fileName ObligationAdapter
- * @date on  2019/3/9  16:15
+ * @fileName DeliveryAdapter
+ * @date on  2019/3/12  10:30
  */
-class ObligationAdapter(context: Context) : BaseMultiAdapter<MultiItemEntity>(context) {
+class DeliveryAdapter(context: Context) : BaseMultiAdapter<MultiItemEntity>(context) {
     private var mListener: OnTextViewClickListener? = null
     init {
         addItemType(Constant.ITEM_EMPTY_TYPE, R.layout.item_order_empty_layout)
-        addItemType(Constant.ITEM_ORDER_TYPE, R.layout.item_obi_pay_layout)
+        addItemType(Constant.ITEM_ORDER_TYPE, R.layout.item_delivery_layout)
         addItemType(Constant.ITEM_TITLE_TYPE, R.layout.item_wanner_layout)
         addItemType(Constant.ITEM_COMMENT_TYPE, R.layout.item_maybe_like)
     }
 
     override fun onBindItemView(holder: BaseViewHolder, position: Int) {
         val viewType = getData()[position].getItemType()
-        when (viewType) {
+        when(viewType){
             Constant.ITEM_EMPTY_TYPE -> {
-                bindEmptyView(holder, position)
+                bindEmptyView(holder,position)
             }
             Constant.ITEM_ORDER_TYPE -> {
-                bindOrderView(holder, position)
+                bindDeliveryView(holder,position)
             }
             Constant.ITEM_TITLE_TYPE -> {
                 bindTitleView(holder,position)
             }
             Constant.ITEM_COMMENT_TYPE -> {
-                bindPickView(holder,position)
+                bindCommentView(holder,position)
             }
         }
     }
 
-    private fun bindPickView(holder: BaseViewHolder, position: Int) {
+    private fun bindCommentView(holder: BaseViewHolder, position: Int) {
         val ivIcon = holder.getView<ImageView>(R.id.iv_icon)
         val tvDes = holder.getView<TextView>(R.id.tv_des)
         val tvPrice = holder.getView<TextView>(R.id.tv_price)
@@ -64,7 +64,7 @@ class ObligationAdapter(context: Context) : BaseMultiAdapter<MultiItemEntity>(co
 
     }
 
-    private fun bindOrderView(holder: BaseViewHolder, position: Int) {
+    private fun bindDeliveryView(holder: BaseViewHolder, position: Int) {
         val ivIcon = holder.getView<ImageView>(R.id.iv_icon)
         val tvTitle = holder.getView<TextView>(R.id.tv_title)
         val tvPrice = holder.getView<TextView>(R.id.tv_price)

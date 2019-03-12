@@ -14,7 +14,8 @@ class Constant{
         const val ITEM_GRID_TYPE = 1
         const val ITEM_EMPTY_TYPE = 0
         const val ITEM_ORDER_TYPE = 1
-        const val ITEM_Title_TYPE = 2
+        const val ITEM_TITLE_TYPE = 2
         const val ITEM_COMMENT_TYPE = 3
+        const val ITEM_DELIVERY_TYPE = 1
     }
 }

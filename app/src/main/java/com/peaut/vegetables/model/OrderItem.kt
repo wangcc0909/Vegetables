@@ -9,7 +9,7 @@ import com.peaut.vegetables.common.Constant
  * @fileName OrderItem
  * @date on  2019/3/11  19:18
  */
-data class OrderItem(val title: String,val icon: String,val price: Float,val count: Int): MultiItemEntity{
+data class OrderItem(val title: String,val icon: String,val price: Float,val count: Int,val viewType: Int = Constant.ITEM_ORDER_TYPE): MultiItemEntity{
     override fun getItemType(): Int {
         return Constant.ITEM_ORDER_TYPE
     }

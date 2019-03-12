@@ -79,4 +79,17 @@
         <item name="android:textColor">@color/goods_comments_color_selector</item>
     </style>
 
+    <style name="OrderTextStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/text_gray_bg</item>
+        <item name="android:layout_marginEnd">@dimen/dp_10</item>
+        <item name="android:paddingStart">@dimen/dp_10</item>
+        <item name="android:paddingEnd">@dimen/dp_10</item>
+        <item name="android:paddingTop">@dimen/dp_4</item>
+        <item name="android:paddingBottom">@dimen/dp_4</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+        <item name="android:clickable">true</item>
+    </style>
+
 </resources>

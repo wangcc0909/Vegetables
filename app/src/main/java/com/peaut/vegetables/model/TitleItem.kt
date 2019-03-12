@@ -9,7 +9,7 @@ import com.peaut.vegetables.common.Constant
  * @fileName TitleItem
  * @date on  2019/3/11  19:23
  */
-data class TitleItem(val viewType: Int = Constant.ITEM_Title_TYPE): MultiItemEntity{
+data class TitleItem(val viewType: Int = Constant.ITEM_TITLE_TYPE): MultiItemEntity{
     override fun getItemType(): Int {
         return this.viewType
     }

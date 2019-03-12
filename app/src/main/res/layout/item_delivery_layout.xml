@@ -4,7 +4,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:tools="http://schemas.android.com/tools"
     android:background="@android:color/white"
     android:clickable="true"
     android:paddingBottom="@dimen/dp_15">
@@ -23,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
-        android:text="待付款"
+        android:text="待发货"
         android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -130,20 +129,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/dp_10"
-        tools:text="共2件"
+        android:text="共2件"
         android:textSize="@dimen/sp_12"
         app:layout_constraintBottom_toBottomOf="@id/tv_total_money"
         app:layout_constraintEnd_toStartOf="@id/tv_sum"
         app:layout_constraintTop_toTopOf="@id/tv_total_money"/>
 
     <TextView
-        android:id="@+id/tv_payment"
+        android:id="@+id/tv_look_logistics"
         style="@style/OrderTextStyle"
-        android:layout_marginEnd="0dp"
+        android:text="查看物流"
+        android:layout_marginEnd="@dimen/dp_0"
         android:layout_marginTop="@dimen/dp_10"
-        android:background="@drawable/text_red_bg"
-        android:text="立即付款"
-        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="@id/tv_price"
         app:layout_constraintTop_toBottomOf="@+id/tv_total_money"/>
 
@@ -151,6 +148,13 @@
         android:id="@+id/tv_cancel"
         style="@style/OrderTextStyle"
         android:text="取消订单"
-        app:layout_constraintEnd_toStartOf="@id/tv_payment"
-        app:layout_constraintTop_toTopOf="@+id/tv_payment"/>
+        app:layout_constraintEnd_toStartOf="@id/tv_look_logistics"
+        app:layout_constraintTop_toTopOf="@+id/tv_look_logistics"/>
+
+    <TextView
+        android:id="@+id/tv_notice"
+        style="@style/OrderTextStyle"
+        android:text="提醒发货"
+        app:layout_constraintEnd_toStartOf="@id/tv_cancel"
+        app:layout_constraintTop_toTopOf="@+id/tv_cancel"/>
 </android.support.constraint.ConstraintLayout>
