@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="@dimen/dp_10"
-        android:text="待发货"
+        android:text="待收货"
         android:textSize="@dimen/sp_12"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -136,6 +136,19 @@
         app:layout_constraintTop_toTopOf="@id/tv_total_money"/>
 
     <TextView
+        android:id="@+id/tv_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="正品溯源信息"
+        android:textColor="@color/navibar_color"
+        android:drawableStart="@drawable/ic_arrow_right_24dp"
+        android:layout_marginStart="@dimen/dp_10"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_total_money"
+        app:layout_constraintBottom_toBottomOf="@id/tv_total_money"/>
+
+    <TextView
         android:id="@+id/tv_look_logistics"
         style="@style/OrderTextStyle"
         android:text="查看物流"
@@ -154,7 +167,9 @@
     <TextView
         android:id="@+id/tv_notice"
         style="@style/OrderTextStyle"
-        android:text="提醒发货"
+        android:text="催物流"
+        android:paddingStart="@dimen/dp_18"
+        android:paddingEnd="@dimen/dp_18"
         app:layout_constraintEnd_toStartOf="@id/tv_cancel"
         app:layout_constraintTop_toTopOf="@+id/tv_cancel"/>
 </android.support.constraint.ConstraintLayout>

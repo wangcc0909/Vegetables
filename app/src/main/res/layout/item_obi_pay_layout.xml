@@ -88,7 +88,7 @@
         android:id="@+id/tv_introduce"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
+        android:layout_marginTop="@dimen/dp_15"
         android:text="查看产品使用说明"
         android:textColor="@color/navibar_color"
         android:textSize="@dimen/sp_12"
@@ -100,7 +100,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_1"
         android:layout_marginStart="@dimen/dp_10"
-        android:layout_marginTop="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
         android:background="@color/color_f0"
         app:layout_constraintTop_toBottomOf="@id/tv_introduce"/>
 
