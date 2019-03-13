@@ -24,6 +24,8 @@ class PayCenterActivity : BaseActivity() {
         mRecyclerView.setLoadMoreEnabled(false)
         val headView = inflate(R.layout.pay_center_head_layout, findViewById(android.R.id.content))
         mLRecyclerViewAdapter.addHeaderView(headView)
+        val footerView= inflate(R.layout.pay_center_footer_layout,findViewById(android.R.id.content))
+        mLRecyclerViewAdapter.addFooterView(footerView)
     }
 
     override fun initData(savedInstanceState: Bundle?) {
