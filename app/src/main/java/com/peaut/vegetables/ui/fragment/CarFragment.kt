@@ -11,6 +11,7 @@ import com.peaut.vegetables.listener.OnCartEventListener
 import com.peaut.vegetables.model.ProductItem
 import com.peaut.vegetables.model.SupplierItem
 import com.peaut.vegetables.ui.activity.MessageActivity
+import com.peaut.vegetables.ui.activity.PayCenterActivity
 import com.peaut.vegetables.util.lineInit
 import com.peaut.vegetables.util.startActivity
 import com.peaut.vegetables.view.BaseFragment
@@ -40,11 +41,11 @@ class CarFragment : BaseFragment(), OnCartEventListener {
         mLRecyclerViewAdapter = LRecyclerViewAdapter(adapter)
         mRecyclerView.lineInit(requireContext(), mLRecyclerViewAdapter)
         val data = mutableListOf<MultiItemEntity>()
-        data.add(SupplierItem("张三的包子铺",1))
-        data.add(ProductItem("肉包", 1.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", true, 20,1))
-        data.add(ProductItem("肉包", 1.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", true, 20,1))
-        data.add(SupplierItem("李四的羊肉涮",2))
-        data.add(ProductItem("肥羊肉", 38.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", false, 8,2))
+        data.add(SupplierItem("张三的包子铺", 1))
+        data.add(ProductItem("肉包", 1.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", true, 20, 1))
+        data.add(ProductItem("肉包", 1.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", true, 20, 1))
+        data.add(SupplierItem("李四的羊肉涮", 2))
+        data.add(ProductItem("肥羊肉", 38.0, "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg", false, 8, 2))
         adapter.addAll(data)
         mLRecyclerViewAdapter.notifyDataSetChanged()
         mStatusLayoutManager.showContent()
@@ -97,15 +98,19 @@ class CarFragment : BaseFragment(), OnCartEventListener {
         ib_msg.setOnClickListener {
             requireContext().startActivity<MessageActivity>()
         }
+        tv_commit.setOnClickListener {
+            //需要携带参数
+            requireContext().startActivity<PayCenterActivity>()
+        }
     }
 
-    private fun removeCheckedItem(){
+    private fun removeCheckedItem() {
         val newData = mutableListOf<MultiItemEntity>()
-        for (item in adapter.getData()){
-            if (item is SupplierItem && !item.isChecked){
+        for (item in adapter.getData()) {
+            if (item is SupplierItem && !item.isChecked) {
                 newData.add(item)
             }
-            if (item is ProductItem && !item.isSelected){
+            if (item is ProductItem && !item.isSelected) {
                 newData.add(item)
             }
         }
@@ -114,11 +119,11 @@ class CarFragment : BaseFragment(), OnCartEventListener {
         //这里还需要发送网络请求
     }
 
-    private fun calculate(){
+    private fun calculate() {
         var sum = 0.00
         val data = adapter.getData()
-        for (item in data){
-            if (item is ProductItem && item.isSelected){
+        for (item in data) {
+            if (item is ProductItem && item.isSelected) {
                 sum += item.count * item.price
             }
         }
@@ -127,8 +132,8 @@ class CarFragment : BaseFragment(), OnCartEventListener {
 
     private fun getProductCount(): Int {
         var count = 0
-        for (item in adapter.getData()){
-            if (item is ProductItem){
+        for (item in adapter.getData()) {
+            if (item is ProductItem) {
                 count++
             }
         }
