@@ -2,6 +2,7 @@ package com.peaut.vegetables.ui.fragment
 
 import android.arch.lifecycle.ViewModel
 import com.peaut.vegetables.R
+import com.peaut.vegetables.ui.activity.MessageActivity
 import com.peaut.vegetables.ui.activity.OrderActivity
 import com.peaut.vegetables.util.intent
 import com.peaut.vegetables.util.startActivity
@@ -50,6 +51,10 @@ class MeFragment : BaseFragment() {
             requireContext().startActivity(requireActivity().intent<OrderActivity> {
                 putExtra("position",4)
             })
+        }
+
+        ib_msg.setOnClickListener {
+            requireContext().startActivity<MessageActivity>()
         }
     }
 

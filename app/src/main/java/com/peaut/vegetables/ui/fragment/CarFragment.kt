@@ -10,7 +10,9 @@ import com.peaut.vegetables.base.MultiItemEntity
 import com.peaut.vegetables.listener.OnCartEventListener
 import com.peaut.vegetables.model.ProductItem
 import com.peaut.vegetables.model.SupplierItem
+import com.peaut.vegetables.ui.activity.MessageActivity
 import com.peaut.vegetables.util.lineInit
+import com.peaut.vegetables.util.startActivity
 import com.peaut.vegetables.view.BaseFragment
 import kotlinx.android.synthetic.main.fm_car.*
 
@@ -91,6 +93,9 @@ class CarFragment : BaseFragment(), OnCartEventListener {
 //            rl_bottom_container.visibility = View.GONE
 //            mStatusLayoutManager.showEmptyLayout()
             //这里用个空布局代替recyclerView
+        }
+        ib_msg.setOnClickListener {
+            requireContext().startActivity<MessageActivity>()
         }
     }
 
