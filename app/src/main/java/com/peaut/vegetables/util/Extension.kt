@@ -172,3 +172,8 @@ fun View.showKeyboard() {
 
     }, 300L)
 }
+
+/**
+ * Extension method to provide simpler access to {@link ContextCompat#getColor(int)}.
+ */
+fun Context.getColorCompat(color: Int) = ContextCompat.getColor(this, color)
