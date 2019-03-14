@@ -79,10 +79,10 @@
 
     <TextView
         android:layout_width="0dp"
-        android:layout_height="@dimen/dp_0_1"
+        android:layout_height="@dimen/dp_0_5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@id/iv_icon"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:background="@color/status_layout_tip_text_color"/>
+        android:background="@color/color_f0"/>
 
 </android.support.constraint.ConstraintLayout>

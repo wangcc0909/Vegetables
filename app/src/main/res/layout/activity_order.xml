@@ -24,7 +24,7 @@
             android:gravity="center"
             android:text="我的订单"
             android:textColor="@color/color_37"
-            android:textSize="@dimen/sp_14"/>
+            android:textSize="@dimen/sp_16"/>
 
         <ImageButton
             android:id="@+id/ib_back"

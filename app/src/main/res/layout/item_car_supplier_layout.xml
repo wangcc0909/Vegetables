@@ -30,8 +30,8 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_0_1"
-        android:background="@color/status_layout_tip_text_color"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/color_f0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"/>
