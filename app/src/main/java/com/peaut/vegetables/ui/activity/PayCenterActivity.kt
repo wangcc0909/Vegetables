@@ -5,6 +5,9 @@ import android.os.Bundle
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.PayCenterAdapter
+import com.peaut.vegetables.base.MultiItemEntity
+import com.peaut.vegetables.model.ProductItem
+import com.peaut.vegetables.model.SupplierItem
 import com.peaut.vegetables.util.inflate
 import com.peaut.vegetables.util.lineInit
 import com.peaut.vegetables.view.BaseActivity
@@ -29,7 +32,13 @@ class PayCenterActivity : BaseActivity() {
     }
 
     override fun initData(savedInstanceState: Bundle?) {
-
+        val data = arrayListOf<MultiItemEntity>()
+        data.add(SupplierItem("特步专卖店",1))
+        val title = "需要一个很长很长的title,搞不好就是越过了极限位置.就是写的长一点,长一点"
+        val icon = "https://ws1.sinaimg.cn/large/0065oQSqgy1fxd7vcz86nj30qo0ybqc1.jpg"
+        data.add(ProductItem(title,12.3,icon,false,5,1))
+        adapter.addAll(data)
+        mLRecyclerViewAdapter.notifyDataSetChanged()
     }
 
     override fun initViewModel(): ViewModel? {
