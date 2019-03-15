@@ -51,7 +51,7 @@ class BottomDialog private constructor(
         val window = dialog?.window
         window?.setGravity(Gravity.BOTTOM)
         window?.setLayout(width, height)
-//        window?.setWindowAnimations(R.style.BottomInAndOutStyle)
+        window?.setWindowAnimations(R.style.BottomInAndOutStyle)
     }
 
     fun dismiss() {
