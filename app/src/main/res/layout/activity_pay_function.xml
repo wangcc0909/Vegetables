@@ -36,10 +36,9 @@
     <TextView
         android:id="@+id/tv_pay_commit"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/dp_45"
         android:background="@drawable/pay_btn_bg"
         android:gravity="center"
-        android:padding="@dimen/dp_13"
         android:text="微信支付$99.00"
         android:textColor="@android:color/white"
         android:textSize="@dimen/sp_14"
