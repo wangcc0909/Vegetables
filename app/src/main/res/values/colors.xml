@@ -18,4 +18,7 @@
     <color name="status_layout_background_color">#EBEBEB</color>
     <color name="status_layout_tip_text_color">#8a8a8a</color>
     <color name="status_layout_click_view_text_color">#0084FF</color>
+    <color name="colorEB161E">#EB161E</color>
+    <color name="colorF95A23">#F95A23</color>
+    <color name="F12E12">#F12E12</color>
 </resources>

@@ -18,6 +18,13 @@ class PayFunctionActivity : BaseActivity() {
 
     }
 
+    override fun initListener(savedInstanceState: Bundle?) {
+        super.initListener(savedInstanceState)
+        ib_back.setOnClickListener { onBackPressed() }
+        wx_pay.setOnClickListener {  }
+        ali_pay.setOnClickListener {  }
+    }
+
     override fun initViewModel(): ViewModel? {
        return null
     }

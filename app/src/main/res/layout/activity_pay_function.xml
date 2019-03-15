@@ -17,11 +17,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"
+        android:background="@android:color/white"
+        android:gravity="center"
         android:text="@string/pay_table"
         android:textColor="@color/color_37"
         android:textSize="@dimen/sp_16"
-        android:gravity="center"
-        android:background="@android:color/white"
         app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
 
     <ImageButton
@@ -32,5 +32,76 @@
         android:src="@drawable/ic_left_black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
+
+    <TextView
+        android:id="@+id/tv_pay_commit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/pay_btn_bg"
+        android:gravity="center"
+        android:padding="@dimen/dp_13"
+        android:text="微信支付$99.00"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+    <TextView
+        android:id="@+id/pay_function"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dp_15"
+        android:layout_marginStart="@dimen/dp_10"
+        android:text="支付方式"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ib_back"/>
+
+    <TextView
+        android:id="@+id/wx_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:padding="@dimen/dp_15"
+        android:text="微信支付"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pay_function"/>
+
+    <ImageView
+        android:id="@+id/wx_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@drawable/ic_unchecked_black"
+        app:layout_constraintBottom_toBottomOf="@+id/wx_pay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wx_pay"/>
+
+    <TextView
+        android:id="@+id/ali_pay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="@dimen/dp_15"
+        android:layout_marginStart="@dimen/dp_10"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:text="支付宝支付"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/wx_pay"/>
+
+    <ImageView
+        android:id="@+id/ali_select"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_20"
+        android:src="@drawable/ic_unchecked_black"
+        app:layout_constraintBottom_toBottomOf="@+id/ali_pay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ali_pay"/>
 
 </android.support.constraint.ConstraintLayout>
