@@ -63,7 +63,7 @@
     <RelativeLayout
         android:id="@+id/rl_bottom_container"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
+        android:layout_height="@dimen/dp_45"
         android:background="@android:color/white">
 
         <CheckBox
@@ -85,7 +85,7 @@
 
             <TextView
                 android:id="@+id/tv_delete"
-                android:layout_width="@dimen/dp_100"
+                android:layout_width="@dimen/dp_120"
                 android:layout_height="match_parent"
                 android:background="@drawable/item_button_submit_selector"
                 android:clickable="true"
@@ -97,7 +97,7 @@
 
             <TextView
                 android:id="@+id/tv_commit"
-                android:layout_width="@dimen/dp_100"
+                android:layout_width="@dimen/dp_120"
                 android:layout_height="match_parent"
                 android:background="@drawable/item_button_submit_selector"
                 android:clickable="true"

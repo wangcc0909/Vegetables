@@ -2,20 +2,29 @@ package com.peaut.vegetables.ui.activity
 
 import android.arch.lifecycle.ViewModel
 import android.os.Bundle
+import android.support.constraint.ConstraintLayout
+import android.widget.ImageView
+import android.widget.RelativeLayout
+import android.widget.TextView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
 import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.PayCenterAdapter
 import com.peaut.vegetables.base.MultiItemEntity
 import com.peaut.vegetables.model.ProductItem
 import com.peaut.vegetables.model.SupplierItem
+import com.peaut.vegetables.util.getWindowHeight
 import com.peaut.vegetables.util.inflate
 import com.peaut.vegetables.util.lineInit
 import com.peaut.vegetables.view.BaseActivity
+import com.peaut.vegetables.weight.BottomDialog
 import kotlinx.android.synthetic.main.activity_pay_center.*
 
 class PayCenterActivity : BaseActivity() {
     private lateinit var adapter: PayCenterAdapter
     private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
+    private lateinit var mCtContainer: ConstraintLayout
+    private lateinit var mRlPayFunc: RelativeLayout
+    private var mBottomDialog: BottomDialog? = null
     override fun getResId(): Int = R.layout.activity_pay_center
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -26,6 +35,8 @@ class PayCenterActivity : BaseActivity() {
         mRecyclerView.lineInit(this, mLRecyclerViewAdapter)
         mRecyclerView.setLoadMoreEnabled(false)
         val headView = inflate(R.layout.pay_center_head_layout, findViewById(android.R.id.content))
+        mCtContainer = headView.findViewById(R.id.ct_address)
+        mRlPayFunc = headView.findViewById(R.id.rl_pay_func)
         mLRecyclerViewAdapter.addHeaderView(headView)
         val footerView= inflate(R.layout.pay_center_footer_layout,findViewById(android.R.id.content))
         mLRecyclerViewAdapter.addFooterView(footerView)
@@ -44,6 +55,29 @@ class PayCenterActivity : BaseActivity() {
     override fun initListener(savedInstanceState: Bundle?) {
         super.initListener(savedInstanceState)
         ib_back.setOnClickListener { onBackPressed() }
+        mCtContainer.setOnClickListener { setAddress() }
+        mRlPayFunc.setOnClickListener { setPayFunction() }
+    }
+
+    private fun setPayFunction() {
+        val view = inflate(R.layout.pay_function_layout)
+        val ivCancel = view.findViewById<ImageView>(R.id.iv_cancel)
+        val tvComplete = view.findViewById<TextView>(R.id.tv_complete)
+        mBottomDialog = BottomDialog.builder(this){
+            this.view = view
+            this.height = (getWindowHeight() * 0.6).toInt()
+        }
+        mBottomDialog?.show()
+
+        ivCancel.setOnClickListener { mBottomDialog?.dismiss() }
+        tvComplete.setOnClickListener {
+            //先拿到选择的方式 然后dismiss
+            mBottomDialog?.dismiss()
+        }
+    }
+
+    private fun setAddress() {
+
     }
 
     override fun initViewModel(): ViewModel? {

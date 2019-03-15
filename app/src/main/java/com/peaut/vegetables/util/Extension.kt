@@ -177,3 +177,12 @@ fun View.showKeyboard() {
  * Extension method to provide simpler access to {@link ContextCompat#getColor(int)}.
  */
 fun Context.getColorCompat(color: Int) = ContextCompat.getColor(this, color)
+
+
+fun Context.getWindowWidth(): Int {
+    return this.resources.displayMetrics.widthPixels
+}
+
+fun Context.getWindowHeight(): Int {
+    return this.resources.displayMetrics.heightPixels
+}
