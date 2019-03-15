@@ -30,7 +30,7 @@
             android:id="@+id/ib_back"
             android:layout_width="@dimen/dp_50"
             android:layout_height="match_parent"
-            android:background="@drawable/ib_bg_selector"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_left_black"/>
 
         <ImageButton
@@ -39,13 +39,13 @@
             android:layout_height="match_parent"
             android:src="@drawable/ic_more_horiz_black"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/ib_bg_selector"/>
+            android:background="?android:attr/selectableItemBackground"/>
 
         <ImageButton
             android:layout_width="@dimen/dp_40"
             android:layout_height="match_parent"
             android:src="@drawable/ic_search_black"
-            android:background="@drawable/ib_bg_selector"
+            android:background="?android:attr/selectableItemBackground"
             android:layout_toStartOf="@+id/ib_more"/>
     </RelativeLayout>
 

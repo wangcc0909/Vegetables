@@ -11,6 +11,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="下载更新"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_question"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -20,6 +21,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="常见问题"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_server_tel"
         app:layout_constraintStart_toEndOf="@id/tv_update"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -29,6 +31,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="客户电话"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_feedback"
         app:layout_constraintStart_toEndOf="@id/tv_question"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -38,6 +41,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="意见反馈"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_server_tel"
         app:layout_constraintTop_toTopOf="parent"/>

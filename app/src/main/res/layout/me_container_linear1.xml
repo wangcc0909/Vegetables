@@ -11,6 +11,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="我的评价"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_address"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -20,6 +21,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="收货地址"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_Coupon"
         app:layout_constraintStart_toEndOf="@id/tv_my_comment"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -29,6 +31,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="优惠劵"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toStartOf="@id/tv_Coupon2"
         app:layout_constraintStart_toEndOf="@id/tv_address"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -38,6 +41,7 @@
         style="@style/orderStatusStyle"
         android:drawableTop="@drawable/order_before"
         android:text="优惠劵"
+        android:background="?android:attr/selectableItemBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/tv_Coupon"
         app:layout_constraintTop_toTopOf="parent"/>

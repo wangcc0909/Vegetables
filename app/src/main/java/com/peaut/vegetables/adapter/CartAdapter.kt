@@ -90,7 +90,7 @@ class CartAdapter(context: Context) : BaseMultiAdapter<MultiItemEntity>(context)
                 return@setOnAmountChangeListener
             }
             data.count = amount
-            notifyItemChanged(position)
+//            notifyItemChanged(position)
             mCartEventListener?.doIncrease(position)
         }
     }

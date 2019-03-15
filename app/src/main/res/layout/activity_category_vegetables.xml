@@ -30,7 +30,7 @@
             android:id="@+id/ib_back"
             android:layout_width="@dimen/dp_50"
             android:layout_height="match_parent"
-            android:background="@drawable/ib_bg_selector"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_left_black"/>
 
         <ImageButton
@@ -38,7 +38,7 @@
             android:layout_width="@dimen/dp_50"
             android:layout_height="match_parent"
             android:layout_alignParentEnd="true"
-            android:background="@drawable/ib_bg_selector"
+            android:background="?android:attr/selectableItemBackground"
             android:src="@drawable/ic_more_horiz_black"/>
     </RelativeLayout>
 

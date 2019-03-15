@@ -15,6 +15,7 @@ import com.peaut.vegetables.model.SupplierItem
 import com.peaut.vegetables.util.getWindowHeight
 import com.peaut.vegetables.util.inflate
 import com.peaut.vegetables.util.lineInit
+import com.peaut.vegetables.util.startActivity
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.weight.BottomDialog
 import kotlinx.android.synthetic.main.activity_pay_center.*
@@ -57,6 +58,7 @@ class PayCenterActivity : BaseActivity() {
         ib_back.setOnClickListener { onBackPressed() }
         mCtContainer.setOnClickListener { setAddress() }
         mRlPayFunc.setOnClickListener { setPayFunction() }
+        tv_commit.setOnClickListener { startActivity<PayFunctionActivity>() }
     }
 
     private fun setPayFunction() {

@@ -31,7 +31,7 @@
             android:layout_width="@dimen/dp_50"
             android:layout_height="match_parent"
             android:src="@drawable/ic_left_black"
-            android:background="@drawable/ib_bg_selector"/>
+            android:background="?android:attr/selectableItemBackground"/>
     </RelativeLayout>
 
     <View
