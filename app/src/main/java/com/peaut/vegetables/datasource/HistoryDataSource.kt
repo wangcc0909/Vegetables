@@ -5,6 +5,7 @@ import com.peaut.vegetables.db.SearchHistoryTable
 import com.peaut.vegetables.db.ext.database
 import com.peaut.vegetables.net.basis.BaseRemoteDataSource
 import com.peaut.vegetables.net.basis.callback.RequestCallback
+import com.peaut.vegetables.net.basis.config.HttpCode
 import com.peaut.vegetables.net.basis.model.BaseResponseBody
 import com.peaut.vegetables.util.applicationContext
 import com.peaut.vegetables.viewmodel.base.BaseViewModel
@@ -71,7 +72,7 @@ class HistoryDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
         }
 //        Collections.reverse(data)
         val body = BaseResponseBody<List<String>>()
-        body.code = 0
+        body.code = HttpCode.CODE_SUCCESS
         body.msg = "success"
         body.data = data
         return Observable.just(body)
