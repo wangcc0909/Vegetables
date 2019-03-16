@@ -12,15 +12,15 @@ import com.peaut.vegetables.adapter.PayCenterAdapter
 import com.peaut.vegetables.base.MultiItemEntity
 import com.peaut.vegetables.model.ProductItem
 import com.peaut.vegetables.model.SupplierItem
-import com.peaut.vegetables.util.getWindowHeight
-import com.peaut.vegetables.util.inflate
-import com.peaut.vegetables.util.lineInit
-import com.peaut.vegetables.util.startActivity
+import com.peaut.vegetables.util.*
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.weight.BottomDialog
 import kotlinx.android.synthetic.main.activity_pay_center.*
 
 class PayCenterActivity : BaseActivity() {
+    companion object {
+        val ADDRESS_REQUEST_CODE = 1000
+    }
     private lateinit var adapter: PayCenterAdapter
     private lateinit var mLRecyclerViewAdapter: LRecyclerViewAdapter
     private lateinit var mCtContainer: ConstraintLayout
@@ -79,7 +79,7 @@ class PayCenterActivity : BaseActivity() {
     }
 
     private fun setAddress() {
-
+        startActivityForResult(intent<AddressListActivity> {  }, ADDRESS_REQUEST_CODE)
     }
 
     override fun initViewModel(): ViewModel? {

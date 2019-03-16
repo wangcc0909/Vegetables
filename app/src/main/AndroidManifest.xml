@@ -17,6 +17,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".ui.activity.AddressListActivity">
+        </activity>
         <activity android:name=".ui.activity.PayFunctionActivity">
         </activity>
         <activity android:name=".ui.activity.PayCenterActivity">

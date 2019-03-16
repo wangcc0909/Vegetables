@@ -1,7 +1,10 @@
 package com.peaut.vegetables.db.ext
 
 import android.content.Context
+import android.database.sqlite.SQLiteDatabase
 import com.peaut.vegetables.db.DatabaseOpenHelper
+import org.jetbrains.anko.db.MapRowParser
+import org.jetbrains.anko.db.SelectQueryBuilder
 
 /**
  * @author peaut
@@ -11,3 +14,24 @@ import com.peaut.vegetables.db.DatabaseOpenHelper
  */
 val Context.database: DatabaseOpenHelper
     get() = DatabaseOpenHelper.instance
+
+
+fun <T : Any> SelectQueryBuilder.parseList(parser: (Map<String, Any?>) -> T): List<T> =
+        parseList(object : MapRowParser<T> {
+            override fun parseRow(columns: Map<String, Any?>): T = parser(columns)
+        })
+
+fun <T : Any> SelectQueryBuilder.parseOpt(parser: (Map<String, Any?>) -> T): T? =
+        parseOpt(object : MapRowParser<T> {
+            override fun parseRow(columns: Map<String, Any?>): T = parser(columns)
+        })
+
+fun SQLiteDatabase.clear(tableName: String) {
+    execSQL("delete from $tableName")
+}
+
+fun SelectQueryBuilder.byId(id: Long) = whereSimple("_id = ?", id.toString())
+
+fun SQLiteDatabase.deleteOneData(tableName: String, param: String, data: String){
+    execSQL("delete from $tableName where $param = '$data'")
+}

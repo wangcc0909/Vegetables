@@ -11,3 +11,12 @@ object SearchHistoryTable{
     val ID = "_id"
     val KEY = "key"
 }
+
+object AddressTable {
+    val TABLE_NAME = "address"
+    val ID = "_id"
+    val USERNAME = "username"
+    val PHONE = "phone"
+    val ADDRESS_INFO = "addressInfo"
+    val IS_DEFAULT = "isDefault"
+}

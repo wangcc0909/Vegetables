@@ -25,4 +25,5 @@
     <string name="init_car_title">购物车</string>
     <string name="et_search_empty">搜索内容不能为空</string>
     <string name="pay_table" translatable="false">收银台</string>
+    <string name="new_address" translatable="false">新增地址</string>
 </resources>
