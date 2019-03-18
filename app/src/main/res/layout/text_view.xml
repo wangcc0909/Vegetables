@@ -7,7 +7,7 @@
     android:padding="@dimen/dp_10"
     tools:text="我数据库发"
     android:textColor="@color/color_gray"
-    android:textSize="@dimen/sp_12"
+    android:textSize="@dimen/sp_13"
     xmlns:tools="http://schemas.android.com/tools">
 
 </TextView>

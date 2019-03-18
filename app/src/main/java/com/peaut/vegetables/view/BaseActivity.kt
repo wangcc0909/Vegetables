@@ -158,9 +158,9 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
+        dismissLoading()
         super.onDestroy()
         AppManager.instance.finishActivity(this)
-        dismissLoading()
     }
 
     protected fun setStatusBarHeight(view: View) {

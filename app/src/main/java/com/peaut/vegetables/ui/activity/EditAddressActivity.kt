@@ -45,6 +45,7 @@ class EditAddressActivity : BaseActivity() {
             val pickerView = PickerView(this,pickdata)
             pickerView.show()
         }
+        ib_back.setOnClickListener { onBackPressed() }
     }
 
     override fun initViewModel(): ViewModel? {

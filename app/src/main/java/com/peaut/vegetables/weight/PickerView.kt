@@ -67,7 +67,7 @@ class PickerView : View.OnClickListener {
         dialog = BottomDialog.builder(context) {
             this.view = contentView
             this.height = (context.getWindowHeight() * 0.6).toInt()
-            this.themeResId = R.style.PickerDialog
+//            this.themeResId = R.style.PickerDialog
         }
         dialog.getDialog()?.setOnDismissListener {
 

@@ -101,7 +101,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address_line_three"/>
 
-    <EditText
+    <TextView
         android:id="@+id/et_area"
         style="@style/EditAddressEditText"
         android:hint="所在地区"
