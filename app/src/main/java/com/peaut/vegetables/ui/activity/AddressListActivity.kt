@@ -6,7 +6,9 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.AddressListAdapter
+import com.peaut.vegetables.common.Constant
 import com.peaut.vegetables.db.model.Address
+import com.peaut.vegetables.util.intent
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.viewmodel.AddressViewModel
 import com.peaut.vegetables.viewmodel.base.LViewModelProviders
@@ -39,6 +41,14 @@ class AddressListActivity : BaseActivity() {
     override fun initListener(savedInstanceState: Bundle?) {
         super.initListener(savedInstanceState)
         ib_back.setOnClickListener { onBackPressed() }
+        tv_add_address.setOnClickListener { addNewAddress() }
+    }
+
+    private fun addNewAddress() {
+        //需要带action
+        startActivity(intent<EditAddressActivity> {
+            this.action = Constant.ACTION_NEW_ADDRESS
+        })
     }
 
     override fun initViewModel(): ViewModel? {

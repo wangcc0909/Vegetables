@@ -1,6 +1,7 @@
 package com.peaut.vegetables.weight
 
 import android.content.Context
+import android.support.annotation.StyleRes
 import android.support.v7.app.AlertDialog
 import android.view.Gravity
 import android.view.View
@@ -16,16 +17,18 @@ import com.peaut.vegetables.util.getWindowWidth
  */
 //view  width height
 class BottomDialog private constructor(
-    private var context: Context,
-    private var view: View,
-    private var width: Int,
-    private var height: Int
+        private var context: Context,
+        private var view: View,
+        private var width: Int,
+        private var height: Int,
+        @StyleRes private var themeResId: Int
 ) {
     constructor(builder: Builder) : this(
-        builder.context,
-        builder.view,
-        builder.width,
-        builder.height
+            builder.context,
+            builder.view,
+            builder.width,
+            builder.height,
+            builder.themeResId
     )
 
     companion object {
@@ -37,7 +40,7 @@ class BottomDialog private constructor(
     private var dialog: AlertDialog? = null
     private fun create() {
         if (dialog == null) {
-            dialog = AlertDialog.Builder(context, R.style.dialog).create()
+            dialog = AlertDialog.Builder(context, themeResId).create()
         }
         dialog?.setView(view)
     }
@@ -54,6 +57,10 @@ class BottomDialog private constructor(
         window?.setWindowAnimations(R.style.BottomInAndOutStyle)
     }
 
+    fun getDialog(): AlertDialog? {
+        return dialog
+    }
+
     fun dismiss() {
         dialog?.dismiss()
     }
@@ -63,6 +70,7 @@ class BottomDialog private constructor(
         lateinit var view: View
         var width: Int = context.getWindowWidth()
         var height: Int = (context.getWindowHeight() * 0.7).toInt()
+        @StyleRes var themeResId: Int = R.style.dialog
         fun build(): BottomDialog {
             val dialog = BottomDialog(this)
             dialog.create()

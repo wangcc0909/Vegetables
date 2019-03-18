@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".ui.activity.EditAddressActivity">
+
+    <View
+        android:id="@+id/myStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_top"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:gravity="center"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myStatusBar"
+        tools:text="新建收货地址"/>
+
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_left_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
+
+    <View
+        android:id="@+id/address_line_one"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginStart="@dimen/dp_15"
+        android:background="@color/color_f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/ib_back"/>
+
+    <TextView
+        android:id="@+id/tv_host"
+        style="@style/EditAddressTextStyle"
+        android:text="收货人"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_line_one"/>
+
+    <EditText
+        android:id="@+id/et_username"
+        style="@style/EditAddressEditText"
+        android:hint="收货人姓名(请使用真实姓名)"
+        app:layout_constraintBottom_toTopOf="@id/address_line_two"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_host"
+        app:layout_constraintTop_toBottomOf="@id/address_line_one"/>
+
+    <View
+        android:id="@+id/address_line_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginStart="@dimen/dp_15"
+        android:background="@color/color_f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_host"/>
+
+    <TextView
+        android:id="@+id/tv_phone"
+        style="@style/EditAddressTextStyle"
+        android:text="手机号码"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_line_two"/>
+
+    <EditText
+        android:id="@+id/et_phone"
+        style="@style/EditAddressEditText"
+        android:hint="手机号码"
+        app:layout_constraintBottom_toTopOf="@id/address_line_three"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_host"
+        app:layout_constraintTop_toBottomOf="@id/address_line_two"/>
+
+    <View
+        android:id="@+id/address_line_three"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginStart="@dimen/dp_15"
+        android:background="@color/color_f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone"/>
+
+    <TextView
+        android:id="@+id/tv_area"
+        style="@style/EditAddressTextStyle"
+        android:text="所在地区"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_line_three"/>
+
+    <EditText
+        android:id="@+id/et_area"
+        style="@style/EditAddressEditText"
+        android:hint="所在地区"
+        app:layout_constraintBottom_toTopOf="@id/address_line_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_area"
+        app:layout_constraintTop_toBottomOf="@id/address_line_three"/>
+
+    <View
+        android:id="@+id/address_line_four"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginStart="@dimen/dp_15"
+        android:background="@color/color_f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_area"/>
+
+    <TextView
+        android:id="@+id/tv_detail_address"
+        style="@style/EditAddressTextStyle"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_15"
+        android:text="详细地址"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/address_line_four"/>
+
+    <EditText
+        android:id="@+id/et_detail_address"
+        style="@style/EditAddressEditText"
+        android:hint="街道丶小区门牌号等详细地址"
+        android:minLines="3"
+        android:maxLines="3"
+        android:gravity="top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_area"
+        app:layout_constraintTop_toTopOf="@id/tv_detail_address"/>
+
+    <View
+        android:id="@+id/address_line_five"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/color_f0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_detail_address"/>
+
+    <CheckBox
+        android:id="@+id/cb_default_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_15"
+        android:button="@drawable/check_selector"
+        android:text="设置为默认地址"
+        android:textSize="@dimen/sp_12"
+        android:textColor="@color/color_37"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/address_line_five"/>
+
+    <TextView
+        android:id="@+id/tv_save"
+        android:layout_width="@dimen/dp_200"
+        android:layout_height="@dimen/dp_30"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@drawable/text_red_bg"
+        android:gravity="center"
+        android:text="保存"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

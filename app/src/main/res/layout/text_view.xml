@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView
+    android:id="@+id/data_text"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dp_10"
+    tools:text="我数据库发"
+    android:textColor="@color/color_gray"
+    android:textSize="@dimen/sp_12"
+    xmlns:tools="http://schemas.android.com/tools">
+
+</TextView>
