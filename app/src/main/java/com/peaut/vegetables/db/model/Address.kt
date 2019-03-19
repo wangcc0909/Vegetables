@@ -1,13 +1,18 @@
 package com.peaut.vegetables.db.model
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+import kotlinx.android.parcel.RawValue
+
 /**
  * @author peaut
  * @package  com.peaut.vegetables.db.model
  * @fileName Address
  * @date on  2019/3/16  11:43
  */
+@Parcelize
+data class Address constructor(private val map: @RawValue MutableMap<String, Any?>): Parcelable {
 
-data class Address constructor(private val map: MutableMap<String, Any?>) {
     var _id: Int by map
     var username: String by map
     var phone: String by map

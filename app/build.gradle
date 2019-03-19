@@ -89,6 +89,9 @@ android {
     lintOptions {
         disable 'GoogleAppIndexingWarning'
     }
+    androidExtensions {
+        experimental = true
+    }
 }
 
 configurations.all {
