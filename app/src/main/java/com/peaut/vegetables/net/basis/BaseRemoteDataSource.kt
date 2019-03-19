@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit
  */
 abstract class BaseRemoteDataSource {
     private var baseViewModel: BaseViewModel
-    private var compositeDisposable: CompositeDisposable
+    var compositeDisposable: CompositeDisposable
 
     constructor(baseViewModel: BaseViewModel) {
         this.baseViewModel = baseViewModel

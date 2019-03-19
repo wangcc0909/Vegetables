@@ -21,5 +21,6 @@ class Constant{
         const val ITEM_DELIVERY_TYPE = 3
         const val ITEM_TAKE_GOODS_TYPE = 4
         const val ACTION_NEW_ADDRESS = "com.peaut.vegetables.newAddress"
+        const val ACTION_UPDATE_ADDRESS = "com.peaut.vegetables.updateAddress"
     }
 }

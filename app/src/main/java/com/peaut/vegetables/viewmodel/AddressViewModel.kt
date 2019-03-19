@@ -15,6 +15,8 @@ import com.peaut.vegetables.viewmodel.base.BaseViewModel
  */
 class AddressViewModel : BaseViewModel() {
     private val addressLiveData = MutableLiveData<List<Address>>()
+    private val addressOneLiveData = MutableLiveData<Address>()
+    private val defaultAddressLiveData = MutableLiveData<Address>()
     private val addressRepo = AddressRepo(AddressDataSource(this))
 
     fun queryAddress() {
@@ -23,5 +25,32 @@ class AddressViewModel : BaseViewModel() {
         })
     }
 
+    fun queryAddress(id: Int) {
+        addressRepo.queryAddress(id).observe(lifecycleOwner!!, Observer {
+            addressOneLiveData.value = it
+        })
+    }
+
+    fun queryDefaultAddress(isDefault: Int) {
+        addressRepo.queryDefaultAddress(isDefault)
+    }
+
+    fun insertAddress(username: String, phone: String, address: String, default: Int) {
+        addressRepo.insertAddress(username, phone, address, default)
+        queryAddress()
+    }
+
+    fun updateAddress(id: Int, vararg values: Pair<String, Any?>) {
+        addressRepo.updateAddress(id, *values)
+        queryAddress()
+    }
+
+    fun deleteAddress(id: Int) {
+        addressRepo.deleteAddress(id)
+        queryAddress()
+    }
+
     fun getAddressData() = addressLiveData
+
+    fun getOneAddressData() = addressOneLiveData
 }

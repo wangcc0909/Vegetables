@@ -192,3 +192,11 @@ fun Context.getWindowHeight(): Int {
 fun <T> Gson.fromJson(value: String): T {
     return this.fromJson<T>(value,object : TypeToken<T>(){}.type)
 }
+
+/**
+ * Extension method to check if String is Phone Number.
+ */
+fun String.isPhone(): Boolean {
+    val p = "^1([345678])\\d{9}\$".toRegex()
+    return matches(p)
+}

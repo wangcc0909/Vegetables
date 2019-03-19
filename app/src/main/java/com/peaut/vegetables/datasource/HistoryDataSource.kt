@@ -12,7 +12,6 @@ import com.peaut.vegetables.viewmodel.base.BaseViewModel
 import io.reactivex.Completable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import org.jetbrains.anko.db.StringParser
 import org.jetbrains.anko.db.delete
@@ -26,10 +25,9 @@ import org.jetbrains.anko.db.select
  * @date on  2019/3/6  17:30
  */
 class HistoryDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(baseViewModel), IHistoryDataSource {
-    private var disposable: CompositeDisposable = CompositeDisposable()
     override fun insertHistory(key: String) {
         //这里封装出observable
-        disposable.add(saveKey(key)
+        compositeDisposable.add(saveKey(key)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe())
@@ -44,7 +42,7 @@ class HistoryDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     }
 
     override fun clearHistory() {
-        disposable.add(clearHistoryCompletable()
+        compositeDisposable.add(clearHistoryCompletable()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe())

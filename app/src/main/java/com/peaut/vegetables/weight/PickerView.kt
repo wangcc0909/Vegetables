@@ -70,7 +70,6 @@ class PickerView : View.OnClickListener {
     }
 
     private fun initPickerView() {
-//        val inflate = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         contentView = context.inflate(R.layout.picker_view, null)
         dialog = BottomDialog.builder(context) {
             this.view = contentView

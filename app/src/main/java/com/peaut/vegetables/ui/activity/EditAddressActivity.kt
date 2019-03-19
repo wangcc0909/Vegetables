@@ -1,24 +1,31 @@
 package com.peaut.vegetables.ui.activity
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.os.Bundle
+import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.peaut.vegetables.R
 import com.peaut.vegetables.common.Constant
+import com.peaut.vegetables.db.AddressTable
+import com.peaut.vegetables.db.model.Address
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.model.Province
+import com.peaut.vegetables.util.isPhone
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.viewmodel.AddressViewModel
 import com.peaut.vegetables.viewmodel.base.LViewModelProviders
 import com.peaut.vegetables.weight.PickerView
 import kotlinx.android.synthetic.main.activity_edit_address.*
+import org.jetbrains.anko.toast
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
 
 class EditAddressActivity : BaseActivity() {
     private lateinit var addressViewModel: AddressViewModel
+    private var oldAddress: Address? = null
     private var action: String? = null
     override fun getResId(): Int = R.layout.activity_edit_address
 
@@ -29,6 +36,9 @@ class EditAddressActivity : BaseActivity() {
         if (Constant.ACTION_NEW_ADDRESS == action) {
             //新增地址  设置title
             tv_title.text = "新增收货地址"
+        } else if (Constant.ACTION_UPDATE_ADDRESS == action) {
+            tv_title.text = "修改地址"
+            //需要获取地址
         }
 
     }
@@ -69,7 +79,7 @@ class EditAddressActivity : BaseActivity() {
         pickdata.mSecondData = secondData
         pickdata.mThirdData = thirdData
         val pickerView = PickerView(this, pickdata)
-        pickerView.setOnPickerClick(object : PickerView.OnPickerClicKListener{
+        pickerView.setOnPickerClick(object : PickerView.OnPickerClicKListener {
             override fun onClick(pickerData: String) {
                 et_area.text = pickerData
             }
@@ -78,10 +88,76 @@ class EditAddressActivity : BaseActivity() {
             pickerView.show()
         }
         ib_back.setOnClickListener { onBackPressed() }
+
+        tv_save.setOnClickListener { saveOrUpdate() }
+    }
+
+    private fun saveOrUpdate() {
+        if (checkEditEmpty()) {
+            return
+        }
+        val isDefault = cb_default_address.isChecked
+        Log.e("isDefault", "$isDefault")
+
+        //先将之前设置的默认地址修改成不是默认的
+        //再存
+        var default = 0
+        if (isDefault) {
+            addressViewModel.queryDefaultAddress(1)
+            if (oldAddress != null) {
+                //这里去修改
+                addressViewModel.updateAddress(oldAddress?._id!!,AddressTable.IS_DEFAULT to 0)
+            }
+            default = 1
+        }
+
+        if (Constant.ACTION_NEW_ADDRESS == action) {
+            addressViewModel.insertAddress(username,phone,address,default)
+        }else if (Constant.ACTION_UPDATE_ADDRESS == action) {
+//            addressViewModel.updateAddress()
+        }
+        onBackPressed()
+    }
+
+    private lateinit var username: String
+    private lateinit var phone: String
+    private lateinit var address: String
+    private fun checkEditEmpty(): Boolean {
+        username = et_username.text.toString().trim()
+        if (username.isNullOrEmpty()) {
+            toast("收货人姓名不能为空")
+            return true
+        }
+        phone = et_phone.text.toString().trim()
+        if (phone.isNullOrEmpty()) {
+            toast("手机号不能为空")
+            return true
+        }
+
+        if (!phone.isPhone()) {
+            toast("请输入正确的手机号")
+            return true
+        }
+
+        val area = et_area.text.toString().trim()
+        if (area.isNullOrEmpty()) {
+            toast("请选择地区")
+            return true
+        }
+        val addr = et_detail_address.text.toString().trim()
+        if (addr.isNullOrEmpty()) {
+            toast("请输入详细地址")
+            return true
+        }
+        address = "$area $addr"
+        return false
     }
 
     override fun initViewModel(): ViewModel? {
         addressViewModel = LViewModelProviders.of(this, AddressViewModel::class.java)
+        addressViewModel.getOneAddressData().observe(this, Observer {
+            oldAddress = it
+        })
         return addressViewModel
     }
 
