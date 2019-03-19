@@ -5,8 +5,8 @@ import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.AnimationDrawable
 import android.graphics.drawable.ColorDrawable
-import com.peaut.vegetables.R
 import android.widget.ImageView
+import com.peaut.vegetables.R
 
 /**
  * @author peaut
@@ -21,7 +21,7 @@ class ProgressLoading constructor(context: Context) : Dialog(context, R.style.Li
         setContentView(R.layout.progress_dialog)
         setCancelable(true)
         setCanceledOnTouchOutside(false)
-        window.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
         //获取动画
         val loadingView = findViewById<ImageView>(R.id.iv_loading)
         animDrawable = loadingView.background as AnimationDrawable
@@ -42,7 +42,8 @@ class ProgressLoading constructor(context: Context) : Dialog(context, R.style.Li
      */
     fun hideLoading() {
         if (this.isShowing) {
-            this.hide()
+//            this.hide()
+            this.dismiss()
         }
         animDrawable?.stop()
     }
