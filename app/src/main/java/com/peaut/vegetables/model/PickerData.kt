@@ -16,16 +16,22 @@ class PickerData {
     var mThirdText = ""
     var mFourthText = ""
     var mPickerTitle = ""
+    var currIndex = 1
+    var currText = ""
 
-    fun getCurrDatas(index: Int,currText: String): List<String> {
+    fun getCurrDatas(): List<String> {
         var curr: List<String> = arrayListOf()
-        when(index){
+        when(currIndex){
             1 -> curr = mFirstData
             2 -> curr = mSecondData.getValue(currText)
             3 -> curr = mThirdData.getValue(currText)
             4 -> curr = mFourthData.getValue(currText)
         }
         return curr
+    }
+
+    fun getSelectText(): String {
+        return mFirstText + mSecondText + mThirdText + mFourthText
     }
 
     fun setInitSelectText(firstText: String){

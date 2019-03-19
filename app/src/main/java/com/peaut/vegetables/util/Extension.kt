@@ -19,6 +19,8 @@ import android.widget.ImageView
 import com.github.jdsjlzx.ItemDecoration.DividerDecoration
 import com.github.jdsjlzx.recyclerview.LRecyclerView
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import com.peaut.vegetables.App
 import com.peaut.vegetables.R
 import com.peaut.vegetables.weight.SpacesItemDecoration
@@ -185,4 +187,8 @@ fun Context.getWindowWidth(): Int {
 
 fun Context.getWindowHeight(): Int {
     return this.resources.displayMetrics.heightPixels
+}
+
+fun <T> Gson.fromJson(value: String): T {
+    return this.fromJson<T>(value,object : TypeToken<T>(){}.type)
 }
