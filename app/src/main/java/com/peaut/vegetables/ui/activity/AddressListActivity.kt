@@ -10,13 +10,15 @@ import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.AddressListAdapter
 import com.peaut.vegetables.common.Constant
 import com.peaut.vegetables.db.model.Address
+import com.peaut.vegetables.listener.OnAddressItemListener
 import com.peaut.vegetables.util.intent
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.viewmodel.AddressViewModel
 import com.peaut.vegetables.viewmodel.base.LViewModelProviders
 import kotlinx.android.synthetic.main.activity_address_list.*
 
-class AddressListActivity : BaseActivity() {
+class AddressListActivity : BaseActivity(), OnAddressItemListener {
+
     companion object {
         val newAddressCode = 1000
     }
@@ -47,6 +49,7 @@ class AddressListActivity : BaseActivity() {
         super.initListener(savedInstanceState)
         ib_back.setOnClickListener { onBackPressed() }
         tv_add_address.setOnClickListener { addNewAddress() }
+        adapter.setOnAddressItemListener(this)
     }
 
     private fun addNewAddress() {
@@ -71,5 +74,12 @@ class AddressListActivity : BaseActivity() {
                 addressViewModel.queryAddress()
             }
         }
+    }
+
+    override fun onAddressEdit(address: Address) {
+        startActivityForResult(intent<EditAddressActivity> {
+            this.action = Constant.ACTION_UPDATE_ADDRESS
+            this.putExtra(Constant.ADDRESS_KEY,address)
+        }, newAddressCode)
     }
 }

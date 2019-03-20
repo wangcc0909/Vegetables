@@ -1,6 +1,5 @@
 package com.peaut.vegetables.datasource
 
-import android.util.Log
 import com.peaut.vegetables.datasource.base.IAddressDataSource
 import com.peaut.vegetables.db.AddressTable
 import com.peaut.vegetables.db.ext.database
@@ -48,7 +47,6 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     override fun insertAddress(username: String, phone: String, address: String, default: Int) {
         //这里判断是否是默认
         modifyDefault(default)
-
         compositeDisposable.add(saveAddress(username, phone, address, default)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -56,24 +54,44 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     }
 
     private fun modifyDefault(default: Int) {
-        if (default == 1) {
-            val data = applicationContext.database.use {
-                select(AddressTable.TABLE_NAME).whereSimple("${AddressTable.IS_DEFAULT} = ?", 1.toString()).parseOpt { Address(HashMap(it)) }
-            }
-            Log.e("address",data.toString())
-            if (data != null) {
-                applicationContext.database.use {
-                    update(AddressTable.TABLE_NAME, AddressTable.IS_DEFAULT to 0).whereSimple("_id = ?", data._id.toString()).exec()
-                }
-            }
+        if (default == 0) {
+            return
+        }
+        val data = applicationContext.database.use {
+            select(AddressTable.TABLE_NAME)
+                    .whereSimple("${AddressTable.IS_DEFAULT} = ?", 1.toString())
+                    .parseOpt { Address(HashMap(it)) }
+        }?: return
+
+        applicationContext.database.use {
+            update(AddressTable.TABLE_NAME, AddressTable.IS_DEFAULT to 0)
+                    .whereSimple("_id = ?", data._id.toString()).exec()
         }
     }
 
     override fun updateAddress(id: Int, vararg values: Pair<String, Any?>) {
+        //先找出default  在判断是否是同一个  是就不更新  不是就更新
+        beforeUpdateAddress(id)
         compositeDisposable.add(updateAddressWith(id, *values)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe())
+    }
+
+    private fun beforeUpdateAddress(id: Int) {
+        val data = applicationContext.database.use {
+            select(AddressTable.TABLE_NAME)
+                    .whereSimple("${AddressTable.IS_DEFAULT} = ?", 1.toString())
+                    .parseOpt { Address(HashMap(it)) }
+        } ?: return
+
+        if (data._id == id) {
+            return
+        }
+        applicationContext.database.use {
+            update(AddressTable.TABLE_NAME, AddressTable.IS_DEFAULT to 0)
+                    .whereSimple("_id = ?", data._id.toString()).exec()
+        }
     }
 
     override fun deleteAddress(id: Int) {
@@ -86,7 +104,8 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     private fun updateAddressWith(id: Int, vararg values: Pair<String, Any?>): Completable {
         return Completable.fromAction {
             applicationContext.database.use {
-                update(AddressTable.TABLE_NAME, *values).whereSimple("_id = ?", id.toString()).exec()
+                update(AddressTable.TABLE_NAME, *values)
+                        .whereSimple("_id = ?", id.toString()).exec()
             }
         }
     }
@@ -104,7 +123,9 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
 
     private fun getDefaultAddress(isDefault: Int): Observable<BaseResponseBody<Address>> {
         val data = applicationContext.database.use {
-            select(AddressTable.TABLE_NAME).whereSimple("isDefault = ?", "$isDefault").parseOpt { Address(HashMap(it)) }
+            select(AddressTable.TABLE_NAME)
+                    .whereSimple("isDefault = ?", "$isDefault")
+                    .parseOpt { Address(HashMap(it)) }
         }
         val body = BaseResponseBody<Address>()
         body.data = data

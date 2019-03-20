@@ -5,11 +5,12 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.peaut.vegetables.R
 import com.peaut.vegetables.common.Constant
+import com.peaut.vegetables.db.AddressTable
+import com.peaut.vegetables.db.model.Address
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.model.Province
 import com.peaut.vegetables.util.isPhone
@@ -26,6 +27,7 @@ import java.io.InputStreamReader
 class EditAddressActivity : BaseActivity() {
     private lateinit var addressViewModel: AddressViewModel
     private var action: String? = null
+    private var oldAddress: Address? = null
     override fun getResId(): Int = R.layout.activity_edit_address
 
     override fun initView(savedInstanceState: Bundle?) {
@@ -38,8 +40,17 @@ class EditAddressActivity : BaseActivity() {
         } else if (Constant.ACTION_UPDATE_ADDRESS == action) {
             tv_title.text = "修改地址"
             //需要获取地址
+            oldAddress = intent.getParcelableExtra(Constant.ADDRESS_KEY)
+            et_username.setText(oldAddress?.username)
+            et_phone.setText(oldAddress?.phone)
+            val area = oldAddress?.addressInfo
+            val areaSplit = area?.split(" ")
+            et_area.text = areaSplit?.get(0)
+            et_detail_address.setText(areaSplit?.get(1))
+            if (oldAddress?.isDefault == 1) {
+                cb_default_address.isChecked = true
+            }
         }
-
     }
 
     private var firstData: ArrayList<String> = arrayListOf()
@@ -73,11 +84,11 @@ class EditAddressActivity : BaseActivity() {
 
     override fun initListener(savedInstanceState: Bundle?) {
         super.initListener(savedInstanceState)
-        val pickdata = PickerData()
-        pickdata.mFirstData = firstData
-        pickdata.mSecondData = secondData
-        pickdata.mThirdData = thirdData
-        val pickerView = PickerView(this, pickdata)
+        val pickData = PickerData()
+        pickData.mFirstData = firstData
+        pickData.mSecondData = secondData
+        pickData.mThirdData = thirdData
+        val pickerView = PickerView(this, pickData)
         pickerView.setOnPickerClick(object : PickerView.OnPickerClicKListener {
             override fun onClick(pickerData: String) {
                 et_area.text = pickerData
@@ -96,10 +107,6 @@ class EditAddressActivity : BaseActivity() {
             return
         }
         val isDefault = cb_default_address.isChecked
-        Log.e("isDefault", "$isDefault")
-
-        //先将之前设置的默认地址修改成不是默认的
-        //再存
         var default = 0
         if (isDefault) {
             default = 1
@@ -107,7 +114,10 @@ class EditAddressActivity : BaseActivity() {
         if (Constant.ACTION_NEW_ADDRESS == action) {
             addressViewModel.insertAddress(username,phone,address,default)
         }else if (Constant.ACTION_UPDATE_ADDRESS == action) {
-//            addressViewModel.updateAddress()
+            addressViewModel.updateAddress(oldAddress?._id!!,AddressTable.USERNAME to username,
+                    AddressTable.PHONE to phone,
+                    AddressTable.ADDRESS_INFO to address,
+                    AddressTable.IS_DEFAULT to default)
         }
         val intent = Intent()
         setResult(Activity.RESULT_OK,intent)

@@ -9,6 +9,7 @@ import com.peaut.vegetables.R
 import com.peaut.vegetables.base.BaseAdapter
 import com.peaut.vegetables.base.BaseViewHolder
 import com.peaut.vegetables.db.model.Address
+import com.peaut.vegetables.listener.OnAddressItemListener
 
 /**
  * @author peaut
@@ -17,6 +18,7 @@ import com.peaut.vegetables.db.model.Address
  * @date on  2019/3/16  11:31
  */
 class AddressListAdapter(context: Context) : BaseAdapter<Address>(context) {
+    private var listener: OnAddressItemListener? = null
     override fun getItemLayoutId(): Int = R.layout.item_address_layout
 
     override fun onBindView(holder: BaseViewHolder, position: Int) {
@@ -45,7 +47,9 @@ class AddressListAdapter(context: Context) : BaseAdapter<Address>(context) {
         }
 
         tvAddress.text = data.addressInfo
-        ivEdit.setOnClickListener { } //到地址编辑界面
+        ivEdit.setOnClickListener {
+            listener?.onAddressEdit(data)
+        } //到地址编辑界面
         holder.itemView.setOnClickListener {
             //将选中的设置为未选中
             if (data.isSelect){
@@ -57,5 +61,9 @@ class AddressListAdapter(context: Context) : BaseAdapter<Address>(context) {
             data.isSelect = true
             notifyDataSetChanged()
         }
+    }
+
+    fun setOnAddressItemListener(l: OnAddressItemListener){
+        listener = l
     }
 }
