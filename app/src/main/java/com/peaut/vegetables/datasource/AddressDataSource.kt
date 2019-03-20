@@ -148,7 +148,7 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     private fun deleteOneAddress(id: Int): Completable {
         return Completable.fromAction {
             applicationContext.database.use {
-                deleteOneData(AddressTable.TABLE_NAME,"_id = ?","$id")
+                deleteOneData(AddressTable.TABLE_NAME,"_id",id.toString())
             }
         }
     }

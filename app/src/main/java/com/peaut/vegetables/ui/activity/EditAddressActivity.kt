@@ -5,6 +5,9 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View
+import android.widget.TextView
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.peaut.vegetables.R
@@ -13,10 +16,12 @@ import com.peaut.vegetables.db.AddressTable
 import com.peaut.vegetables.db.model.Address
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.model.Province
+import com.peaut.vegetables.util.inflate
 import com.peaut.vegetables.util.isPhone
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.viewmodel.AddressViewModel
 import com.peaut.vegetables.viewmodel.base.LViewModelProviders
+import com.peaut.vegetables.weight.CommonDialog
 import com.peaut.vegetables.weight.PickerView
 import kotlinx.android.synthetic.main.activity_edit_address.*
 import org.jetbrains.anko.toast
@@ -41,6 +46,8 @@ class EditAddressActivity : BaseActivity() {
             tv_title.text = "修改地址"
             //需要获取地址
             oldAddress = intent.getParcelableExtra(Constant.ADDRESS_KEY)
+            Log.e("oldAddress",oldAddress?.toString())
+            ib_delete.visibility = View.VISIBLE
             et_username.setText(oldAddress?.username)
             et_phone.setText(oldAddress?.phone)
             val area = oldAddress?.addressInfo
@@ -94,12 +101,30 @@ class EditAddressActivity : BaseActivity() {
                 et_area.text = pickerData
             }
         })
-        et_area.setOnClickListener {
-            pickerView.show()
-        }
+        et_area.setOnClickListener { pickerView.show() }
         ib_back.setOnClickListener { onBackPressed() }
-
+        ib_delete.setOnClickListener { deleteAddress() }
         tv_save.setOnClickListener { saveOrUpdate() }
+    }
+
+    private fun deleteAddress() {
+        //弹出dialog
+        val contentView = inflate(R.layout.edit_delete_layout)
+        val tvCancel = contentView.findViewById<TextView>(R.id.tv_cancel)
+        val tvConfirm = contentView.findViewById<TextView>(R.id.tv_confirm)
+        val dialog = CommonDialog.builder(this) {
+            this.view = contentView
+        }
+        dialog.show()
+
+        tvCancel.setOnClickListener { dialog.dismiss() }
+        tvConfirm.setOnClickListener {
+            addressViewModel.deleteAddress(oldAddress?._id!!)
+            dialog.dismiss()
+            val intent = Intent()
+            setResult(Activity.RESULT_OK, intent)
+            onBackPressed()
+        }
     }
 
     private fun saveOrUpdate() {
@@ -112,15 +137,15 @@ class EditAddressActivity : BaseActivity() {
             default = 1
         }
         if (Constant.ACTION_NEW_ADDRESS == action) {
-            addressViewModel.insertAddress(username,phone,address,default)
-        }else if (Constant.ACTION_UPDATE_ADDRESS == action) {
-            addressViewModel.updateAddress(oldAddress?._id!!,AddressTable.USERNAME to username,
+            addressViewModel.insertAddress(username, phone, address, default)
+        } else if (Constant.ACTION_UPDATE_ADDRESS == action) {
+            addressViewModel.updateAddress(oldAddress?._id!!, AddressTable.USERNAME to username,
                     AddressTable.PHONE to phone,
                     AddressTable.ADDRESS_INFO to address,
                     AddressTable.IS_DEFAULT to default)
         }
         val intent = Intent()
-        setResult(Activity.RESULT_OK,intent)
+        setResult(Activity.RESULT_OK, intent)
         onBackPressed()
     }
 

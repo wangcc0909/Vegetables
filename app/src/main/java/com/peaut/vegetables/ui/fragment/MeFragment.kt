@@ -2,12 +2,14 @@ package com.peaut.vegetables.ui.fragment
 
 import android.arch.lifecycle.ViewModel
 import com.peaut.vegetables.R
+import com.peaut.vegetables.ui.activity.AddressListActivity
 import com.peaut.vegetables.ui.activity.MessageActivity
 import com.peaut.vegetables.ui.activity.OrderActivity
 import com.peaut.vegetables.util.intent
 import com.peaut.vegetables.util.startActivity
 import com.peaut.vegetables.view.BaseFragment
 import kotlinx.android.synthetic.main.fm_me.*
+import kotlinx.android.synthetic.main.me_container_linear1.*
 
 /**
  * @author peaut
@@ -56,6 +58,8 @@ class MeFragment : BaseFragment() {
         ib_msg.setOnClickListener {
             requireContext().startActivity<MessageActivity>()
         }
+
+        tv_address.setOnClickListener { requireContext().startActivity<AddressListActivity>() }
     }
 
 }
