@@ -1,15 +1,15 @@
 package com.peaut.vegetables.ui.activity
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import com.peaut.vegetables.R
 import com.peaut.vegetables.common.Constant
-import com.peaut.vegetables.db.AddressTable
-import com.peaut.vegetables.db.model.Address
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.model.Province
 import com.peaut.vegetables.util.isPhone
@@ -25,7 +25,6 @@ import java.io.InputStreamReader
 
 class EditAddressActivity : BaseActivity() {
     private lateinit var addressViewModel: AddressViewModel
-    private var oldAddress: Address? = null
     private var action: String? = null
     override fun getResId(): Int = R.layout.activity_edit_address
 
@@ -103,19 +102,15 @@ class EditAddressActivity : BaseActivity() {
         //再存
         var default = 0
         if (isDefault) {
-            addressViewModel.queryDefaultAddress(1)
-            if (oldAddress != null) {
-                //这里去修改
-                addressViewModel.updateAddress(oldAddress?._id!!,AddressTable.IS_DEFAULT to 0)
-            }
             default = 1
         }
-
         if (Constant.ACTION_NEW_ADDRESS == action) {
             addressViewModel.insertAddress(username,phone,address,default)
         }else if (Constant.ACTION_UPDATE_ADDRESS == action) {
 //            addressViewModel.updateAddress()
         }
+        val intent = Intent()
+        setResult(Activity.RESULT_OK,intent)
         onBackPressed()
     }
 
@@ -156,7 +151,7 @@ class EditAddressActivity : BaseActivity() {
     override fun initViewModel(): ViewModel? {
         addressViewModel = LViewModelProviders.of(this, AddressViewModel::class.java)
         addressViewModel.getOneAddressData().observe(this, Observer {
-            oldAddress = it
+
         })
         return addressViewModel
     }

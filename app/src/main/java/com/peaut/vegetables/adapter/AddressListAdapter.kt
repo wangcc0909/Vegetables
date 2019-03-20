@@ -38,7 +38,12 @@ class AddressListAdapter(context: Context) : BaseAdapter<Address>(context) {
         }
         tvUsername.text = data.username
         tvPhone.text = data.phone
-//        tvLabel.text =
+        if (data.isDefault == 1){
+            tvLabel.visibility = View.VISIBLE
+        }else {
+            tvLabel.visibility = View.GONE
+        }
+
         tvAddress.text = data.addressInfo
         ivEdit.setOnClickListener { } //到地址编辑界面
         holder.itemView.setOnClickListener {

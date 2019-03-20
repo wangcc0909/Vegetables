@@ -39,7 +39,7 @@
             android:paddingTop="@dimen/dp_15"
             android:paddingBottom="@dimen/dp_15"
             android:paddingEnd="@dimen/dp_4"
-            android:textColor="@color/navibar_color"
+            android:textColor="@color/color_navigation"
             android:textSize="@dimen/sp_20"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -117,7 +117,7 @@
             android:paddingBottom="@dimen/dp_15"
             android:paddingTop="@dimen/dp_15"
             android:paddingEnd="@dimen/dp_15"
-            android:textColor="@color/navibar_color"
+            android:textColor="@color/color_navigation"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@id/top_line_two"
             tools:text="好评 98.7%"/>

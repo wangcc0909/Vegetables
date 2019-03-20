@@ -18,6 +18,7 @@
         android:id="@+id/iv_icon"
         android:layout_width="@dimen/dp_100"
         android:layout_height="@dimen/dp_100"
+        tools:ignore="ContentDescription"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -42,7 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_10"
         android:layout_marginTop="@dimen/dp_10"
-        android:textColor="@color/navibar_color"
+        android:textColor="@color/color_navigation"
         android:textSize="@dimen/sp_18"
         app:layout_constraintStart_toEndOf="@id/iv_icon"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
@@ -58,61 +59,69 @@
         app:layout_constraintTop_toTopOf="@id/tv_price"
         tools:text="x2"/>
 
-    <RelativeLayout
-        android:id="@+id/rl_send"
+    <Space
+        android:id="@+id/product_space_one"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_15"
+        android:layout_height="@dimen/dp_15"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_icon">
+        app:layout_constraintTop_toBottomOf="@id/iv_icon"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="配送"
-            android:textColor="@color/color_37"
-            android:textSize="@dimen/sp_14"/>
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_more_horiz_black"
+        tools:ignore="ContentDescription"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_logistics"
+        app:layout_constraintBottom_toBottomOf="@id/tv_logistics_info"/>
 
-        <ImageView
-            android:id="@+id/iv_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/ic_more_horiz_black"/>
+    <TextView
+        android:id="@+id/tv_logistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_5"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
+        tools:text="快递运输"
+        app:layout_constraintTop_toBottomOf="@id/product_space_one"
+        app:layout_constraintEnd_toStartOf="@id/iv_more"/>
 
-        <TextView
-            android:id="@+id/tv_logistics"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp_5"
-            android:layout_toStartOf="@+id/iv_more"
-            android:textColor="@color/color_37"
-            android:textSize="@dimen/sp_14"
-            tools:text="快递运输"/>
+    <TextView
+        android:id="@+id/tv_logistics_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
+        tools:text="工作日,双休日与节假日皆可送货"
+        app:layout_constraintTop_toBottomOf="@id/tv_logistics"
+        app:layout_constraintEnd_toEndOf="@id/tv_logistics"/>
 
-        <TextView
-            android:id="@+id/tv_logistics_info"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/tv_logistics"
-            android:layout_marginEnd="@dimen/dp_5"
-            android:layout_toStartOf="@id/iv_more"
-            android:textColor="@color/color_37"
-            android:textSize="@dimen/sp_14"
-            tools:text="工作日,双休日与节假日皆可送货"/>
-    </RelativeLayout>
+    <TextView
+        android:id="@+id/tv_order_send"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="@string/order_send_function"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
+        app:layout_constraintTop_toTopOf="@id/tv_logistics"
+        app:layout_constraintBottom_toBottomOf="@id/tv_logistics_info"/>
+
+    <Space
+        android:id="@+id/product_space_two"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/tv_order_send"/>
 
     <TextView
         android:id="@+id/tv_comment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/dp_10"
-        android:text="留言"
+        android:text="@string/leave_message"
         android:textColor="@color/color_37"
         android:textSize="@dimen/sp_14"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/rl_send"/>
+        app:layout_constraintTop_toBottomOf="@id/product_space_two"/>
 
     <EditText
         android:id="@+id/et_words"
@@ -120,7 +129,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/dp_5"
         android:background="@null"
-        android:hint="建议留言前先与商家沟通确认"
+        android:inputType="text"
+        android:hint="@string/leave_message_notice"
         android:textCursorDrawable="@null"
         android:textSize="@dimen/sp_14"
         app:layout_constraintBottom_toBottomOf="@id/tv_comment"

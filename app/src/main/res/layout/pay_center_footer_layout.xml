@@ -149,7 +149,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="@dimen/sp_14"
                 android:text="+ ¥9.00"
-                android:textColor="@color/navibar_color"/>
+                android:textColor="@color/color_navigation"/>
         </LinearLayout>
 
     </LinearLayout>

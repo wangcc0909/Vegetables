@@ -1,5 +1,6 @@
 package com.peaut.vegetables.datasource
 
+import android.util.Log
 import com.peaut.vegetables.datasource.base.IAddressDataSource
 import com.peaut.vegetables.db.AddressTable
 import com.peaut.vegetables.db.ext.database
@@ -45,10 +46,27 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     }
 
     override fun insertAddress(username: String, phone: String, address: String, default: Int) {
+        //这里判断是否是默认
+        modifyDefault(default)
+
         compositeDisposable.add(saveAddress(username, phone, address, default)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe())
+    }
+
+    private fun modifyDefault(default: Int) {
+        if (default == 1) {
+            val data = applicationContext.database.use {
+                select(AddressTable.TABLE_NAME).whereSimple("${AddressTable.IS_DEFAULT} = ?", 1.toString()).parseOpt { Address(HashMap(it)) }
+            }
+            Log.e("address",data.toString())
+            if (data != null) {
+                applicationContext.database.use {
+                    update(AddressTable.TABLE_NAME, AddressTable.IS_DEFAULT to 0).whereSimple("_id = ?", data._id.toString()).exec()
+                }
+            }
+        }
     }
 
     override fun updateAddress(id: Int, vararg values: Pair<String, Any?>) {
@@ -68,7 +86,7 @@ class AddressDataSource(baseViewModel: BaseViewModel) : BaseRemoteDataSource(bas
     private fun updateAddressWith(id: Int, vararg values: Pair<String, Any?>): Completable {
         return Completable.fromAction {
             applicationContext.database.use {
-                update(AddressTable.TABLE_NAME, *values).whereSimple("_id = ?", "$id").exec()
+                update(AddressTable.TABLE_NAME, *values).whereSimple("_id = ?", id.toString()).exec()
             }
         }
     }

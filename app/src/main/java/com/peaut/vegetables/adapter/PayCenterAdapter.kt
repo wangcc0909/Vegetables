@@ -6,7 +6,6 @@ import android.text.TextWatcher
 import android.util.Log
 import android.widget.EditText
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import com.peaut.vegetables.R
 import com.peaut.vegetables.base.BaseMultiAdapter
@@ -48,7 +47,7 @@ class PayCenterAdapter(context: Context): BaseMultiAdapter<MultiItemEntity>(cont
         val tvTitle = holder.getView<TextView>(R.id.tv_title)
         val tvPrice = holder.getView<TextView>(R.id.tv_price)
         val tvCount = holder.getView<TextView>(R.id.tv_count)
-        val rlContainer = holder.getView<RelativeLayout>(R.id.rl_send)  //配送的点击事件
+        val rlContainer = holder.getView<TextView>(R.id.tv_order_send)  //配送的点击事件
         val tvLogistics = holder.getView<TextView>(R.id.tv_logistics)
         val tvLogisticsInfo = holder.getView<TextView>(R.id.tv_logistics_info)
         val etWords = holder.getView<EditText>(R.id.et_words)

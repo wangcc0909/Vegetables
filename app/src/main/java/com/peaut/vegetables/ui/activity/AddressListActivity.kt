@@ -1,7 +1,9 @@
 package com.peaut.vegetables.ui.activity
 
+import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import com.peaut.vegetables.R
@@ -15,6 +17,9 @@ import com.peaut.vegetables.viewmodel.base.LViewModelProviders
 import kotlinx.android.synthetic.main.activity_address_list.*
 
 class AddressListActivity : BaseActivity() {
+    companion object {
+        val newAddressCode = 1000
+    }
     private lateinit var adapter: AddressListAdapter
     private lateinit var addressViewModel: AddressViewModel
     override fun getResId(): Int = R.layout.activity_address_list
@@ -46,9 +51,9 @@ class AddressListActivity : BaseActivity() {
 
     private fun addNewAddress() {
         //需要带action
-        startActivity(intent<EditAddressActivity> {
+        startActivityForResult(intent<EditAddressActivity> {
             this.action = Constant.ACTION_NEW_ADDRESS
-        })
+        }, newAddressCode)
     }
 
     override fun initViewModel(): ViewModel? {
@@ -57,5 +62,14 @@ class AddressListActivity : BaseActivity() {
             adapter.updateData(it!!)
         })
         return addressViewModel
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (resultCode == Activity.RESULT_OK) {
+            if (requestCode == newAddressCode) {
+                addressViewModel.queryAddress()
+            }
+        }
     }
 }

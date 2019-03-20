@@ -127,7 +127,7 @@
                 android:id="@+id/tv_total_money"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/navibar_color"
+                android:textColor="@color/color_navigation"
                 android:textSize="@dimen/sp_14"
                 android:text="@string/init_total_money"/>
         </LinearLayout>

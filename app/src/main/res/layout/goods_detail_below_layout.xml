@@ -60,7 +60,7 @@
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:textColor="@android:color/white"
-        android:background="@color/navibar_color"
+        android:background="@color/color_navigation"
         android:text="立即购买"
         android:gravity="center"
         android:textSize="@dimen/sp_14"

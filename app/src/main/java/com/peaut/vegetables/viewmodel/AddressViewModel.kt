@@ -32,25 +32,26 @@ class AddressViewModel : BaseViewModel() {
     }
 
     fun queryDefaultAddress(isDefault: Int) {
-        addressRepo.queryDefaultAddress(isDefault)
+        addressRepo.queryDefaultAddress(isDefault).observe(lifecycleOwner!!, Observer {
+            defaultAddressLiveData.value = it
+        })
     }
 
     fun insertAddress(username: String, phone: String, address: String, default: Int) {
         addressRepo.insertAddress(username, phone, address, default)
-        queryAddress()
     }
 
     fun updateAddress(id: Int, vararg values: Pair<String, Any?>) {
         addressRepo.updateAddress(id, *values)
-        queryAddress()
     }
 
     fun deleteAddress(id: Int) {
         addressRepo.deleteAddress(id)
-        queryAddress()
     }
 
     fun getAddressData() = addressLiveData
 
     fun getOneAddressData() = addressOneLiveData
+
+    fun getDefaultAddressData() = defaultAddressLiveData
 }

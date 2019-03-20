@@ -61,14 +61,14 @@
             android:paddingStart="@dimen/dp_10"
             android:text="$99"
             android:background="@android:color/white"
-            android:textColor="@color/navibar_color"
+            android:textColor="@color/color_navigation"
             android:textSize="@dimen/sp_20"/>
 
         <TextView
             android:id="@+id/tv_commit"
             android:layout_width="@dimen/dp_120"
             android:layout_height="match_parent"
-            android:background="@color/navibar_color"
+            android:background="@color/color_navigation"
             android:gravity="center"
             android:text="提交订单"
             android:textColor="@android:color/white"

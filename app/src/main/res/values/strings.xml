@@ -26,4 +26,7 @@
     <string name="et_search_empty">搜索内容不能为空</string>
     <string name="pay_table" translatable="false">收银台</string>
     <string name="new_address" translatable="false">新增地址</string>
+    <string name="order_send_function">配送</string>
+    <string name="leave_message">留言</string>
+    <string name="leave_message_notice">建议留言前先与商家沟通确认</string>
 </resources>

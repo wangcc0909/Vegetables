@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:text="特价"
-            android:textColor="@color/navibar_color"
+            android:textColor="@color/color_navigation"
             android:textSize="@dimen/sp_12"/>
 
         <TextView

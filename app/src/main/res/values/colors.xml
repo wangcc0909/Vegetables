@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="common_black">#000000</color>
-    <color name="navibar_color">#E90028</color>
+    <color name="color_navigation">#E90028</color>
     <color name="person_center_color">#A3162E</color>
     <color name="color_normal_bg">#F2F2F2</color>
     <color name="color_gray">#aaaaaa</color>
