@@ -191,3 +191,7 @@ public *;
 # for DexGuard only  这个是收费的
 #-keepresourcexmlelements manifest/application/meta-data@value=GlideModule
 
+# entry model
+-keep class com.peaut.vegetables.model.** { *; }
+-keep class com.peaut.vegetables.db.model.** { *; }
+
