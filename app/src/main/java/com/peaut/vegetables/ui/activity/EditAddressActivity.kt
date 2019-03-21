@@ -65,20 +65,16 @@ class EditAddressActivity : BaseActivity() {
     private var thirdData: HashMap<String, List<String>> = hashMapOf()
     override fun initData(savedInstanceState: Bundle?) {
         val gson = Gson()
-        Log.e("json string",getCityJson())
         val data = gson.fromJson<List<Province>>(getCityJson(), object : TypeToken<List<Province>>() {}.type)
 //        val data = gson.fromJson<List<Province>>(getCityJson())
-        Log.e("data json= ",data.toString())
         generateData(data)
     }
 
     private fun generateData(data: List<Province>) {
-
         for (item in data) {
             firstData.add(item.label)
             val cityList = item.children
             val cityListString = arrayListOf<String>()
-//            Log.e("cityList",cityList.toString())
             for (city in cityList) {
                 cityListString.add(city.label)
                 val areaList = city.children
@@ -202,7 +198,6 @@ class EditAddressActivity : BaseActivity() {
             bf.forEachLine {
                 sb.append(it)
             }
-
         } catch (e: IOException) {
             e.printStackTrace()
         }

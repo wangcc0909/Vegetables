@@ -146,6 +146,7 @@ dependencies {
     debugImplementation rootProject.ext.dependencies.debugLeakCanaryFragment
     debugImplementation rootProject.ext.dependencies.debugChuck
     releaseImplementation rootProject.ext.dependencies.releaseChuck
+    api rootProject.ext.dependencies.libZxing
 }
 kapt {
     generateStubs = true
