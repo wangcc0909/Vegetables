@@ -69,7 +69,7 @@
         android:hint="收货人姓名(请使用真实姓名)"
         app:layout_constraintBottom_toTopOf="@id/address_line_two"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_host"
+        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintTop_toBottomOf="@id/address_line_one"/>
 
     <View
@@ -92,9 +92,10 @@
         android:id="@+id/et_phone"
         style="@style/EditAddressEditText"
         android:hint="手机号码"
+        android:inputType="phone"
         app:layout_constraintBottom_toTopOf="@id/address_line_three"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_host"
+        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintTop_toBottomOf="@id/address_line_two"/>
 
     <View
@@ -119,7 +120,7 @@
         android:hint="所在地区"
         app:layout_constraintBottom_toTopOf="@id/address_line_four"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_area"
+        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintTop_toBottomOf="@id/address_line_three"/>
 
     <View
@@ -148,7 +149,7 @@
         android:maxLines="3"
         android:minLines="3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tv_area"
+        app:layout_constraintStart_toEndOf="@id/barrier"
         app:layout_constraintTop_toTopOf="@id/tv_detail_address"/>
 
     <View
@@ -160,6 +161,13 @@
         android:background="@color/color_f0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/et_detail_address"/>
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="tv_host,tv_phone,tv_area,tv_detail_address"/>
 
     <CheckBox
         android:id="@+id/cb_default_address"
@@ -176,10 +184,8 @@
 
     <TextView
         android:id="@+id/tv_save"
-        android:layout_width="@dimen/dp_200"
+        android:layout_width="0dp"
         android:layout_height="@dimen/dp_30"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="@dimen/dp_20"
         android:background="@drawable/text_red_bg"
         android:gravity="center"
@@ -188,6 +194,7 @@
         android:textSize="@dimen/sp_12"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintWidth_percent="0.5"/>
 
 </android.support.constraint.ConstraintLayout>

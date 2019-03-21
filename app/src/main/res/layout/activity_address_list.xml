@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,52 +16,54 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <RelativeLayout
+
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/dp_50"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:text="收货地址"
+        android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_16"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
 
-        <TextView
-            android:id="@+id/tv_title"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_50"
-            android:background="@android:color/white"
-            android:gravity="center"
-            android:text="收货地址"
-            android:textColor="@color/color_37"
-            android:textSize="@dimen/sp_16"/>
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="@dimen/dp_50"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_left_black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_title"
+        tools:ignore="ContentDescription"/>
 
-        <ImageButton
-            android:id="@+id/ib_back"
-            android:layout_width="@dimen/dp_50"
-            android:layout_height="@dimen/dp_50"
-            android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_left_black"/>
-    </RelativeLayout>
-
-    <RelativeLayout
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_marginEnd="@dimen/dp_10"
+        android:layout_marginStart="@dimen/dp_10"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="1.0">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="@dimen/dp_10"
-            android:layout_marginStart="@dimen/dp_10">
+    </android.support.v7.widget.RecyclerView>
 
-        </android.support.v7.widget.RecyclerView>
+    <TextView
+        android:id="@+id/tv_add_address"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/dp_30"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@drawable/text_red_bg"
+        android:gravity="center"
+        android:text="@string/new_address"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintWidth_percent="0.5"/>
 
-        <TextView
-            android:id="@+id/tv_add_address"
-            android:layout_width="@dimen/dp_200"
-            android:layout_height="@dimen/dp_30"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="@dimen/dp_20"
-            android:background="@drawable/text_red_bg"
-            android:gravity="center"
-            android:text="@string/new_address"
-            android:textColor="@android:color/white"
-            android:textSize="@dimen/sp_12"/>
-    </RelativeLayout>
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>
