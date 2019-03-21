@@ -200,3 +200,8 @@ fun String.isPhone(): Boolean {
     val p = "^1([345678])\\d{9}\$".toRegex()
     return matches(p)
 }
+
+fun String.isURL(): Boolean {
+    val p = "^(((https|http)?://)?([a-z0-9]+[.])|(www.))\\w+[.|\\/]([a-z0-9]{0,})?[[.]([a-z0-9]{0,})]+((/[\\S&&[^,;\u4E00-\u9FA5]]+)+)?([.][a-z0-9]{0,}+|/?)\$".toRegex()
+    return matches(p)
+}
