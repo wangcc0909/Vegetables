@@ -3,8 +3,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/matchWrap"
-    android:paddingBottom="@dimen/dp_20"
-    android:paddingTop="@dimen/dp_20">
+    android:paddingBottom="@dimen/dp_10"
+    android:paddingTop="@dimen/dp_10">
 
     <TextView
         android:id="@+id/tv_update"
