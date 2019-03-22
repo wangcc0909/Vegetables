@@ -3,6 +3,7 @@ package com.peaut.vegetables.weight
 import android.content.Context
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.view.Gravity
 import android.view.View
 import android.widget.ImageButton
 import android.widget.RadioButton
@@ -12,7 +13,7 @@ import com.peaut.vegetables.adapter.PickerViewAdapter
 import com.peaut.vegetables.listener.OnTextViewClickListener
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.util.getWindowHeight
-import com.peaut.vegetables.util.inflate
+import com.peaut.vegetables.util.getWindowWidth
 
 /**
  * @author peaut
@@ -25,8 +26,7 @@ class PickerView : View.OnClickListener {
     private var context: Context
     private var pickerData: PickerData
     private var currData: List<String> = arrayListOf()
-    private lateinit var dialog: BottomDialog
-    private lateinit var contentView: View
+    private lateinit var dialog: SmartDialog
     private lateinit var mRgSelect: RadioGroup
     private lateinit var mTextFirst: RadioButton
     private lateinit var mTextSecond: RadioButton
@@ -53,13 +53,13 @@ class PickerView : View.OnClickListener {
     }
 
     private fun initView() {
-        mRgSelect = contentView.findViewById(R.id.rg_select)
-        mTextFirst = contentView.findViewById(R.id.mTextFirst)
-        mTextSecond = contentView.findViewById(R.id.mTextSecond)
-        mTextThird = contentView.findViewById(R.id.mTextThird)
-        mTextFourth = contentView.findViewById(R.id.mTextFourth)
-        mPickerList = contentView.findViewById(R.id.pickerList)
-        mIbDismiss = contentView.findViewById(R.id.ib_dismiss)
+        mRgSelect = dialog.getView(R.id.rg_select)
+        mTextFirst = dialog.getView(R.id.mTextFirst)
+        mTextSecond = dialog.getView(R.id.mTextSecond)
+        mTextThird = dialog.getView(R.id.mTextThird)
+        mTextFourth = dialog.getView(R.id.mTextFourth)
+        mPickerList = dialog.getView(R.id.pickerList)
+        mIbDismiss = dialog.getView(R.id.ib_dismiss)
         mPickerList.layoutManager = LinearLayoutManager(context)
         mPickerList.setHasFixedSize(true)
         mTextFirst.setOnClickListener(this)
@@ -70,14 +70,13 @@ class PickerView : View.OnClickListener {
     }
 
     private fun initPickerView() {
-        contentView = context.inflate(R.layout.picker_view, null)
-        dialog = BottomDialog.builder(context) {
-            this.view = contentView
+        dialog = SmartDialog.builder(context){
+            this.resId = R.layout.picker_view
+            this.width = context.getWindowWidth()
             this.height = (context.getWindowHeight() * 0.6).toInt()
+            this.gravity = Gravity.BOTTOM
+            this.animation = SmartDialog.BottomToUpAnimation
             this.themeResId = R.style.PickerDialog
-        }
-        dialog.getDialog()?.setOnDismissListener {
-
         }
     }
 

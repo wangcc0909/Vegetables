@@ -16,13 +16,12 @@ import com.peaut.vegetables.db.AddressTable
 import com.peaut.vegetables.db.model.Address
 import com.peaut.vegetables.model.PickerData
 import com.peaut.vegetables.model.Province
-import com.peaut.vegetables.util.inflate
 import com.peaut.vegetables.util.isPhone
 import com.peaut.vegetables.view.BaseActivity
 import com.peaut.vegetables.viewmodel.AddressViewModel
 import com.peaut.vegetables.viewmodel.base.LViewModelProviders
-import com.peaut.vegetables.weight.CommonDialog
 import com.peaut.vegetables.weight.PickerView
+import com.peaut.vegetables.weight.SmartDialog
 import kotlinx.android.synthetic.main.activity_edit_address.*
 import org.jetbrains.anko.toast
 import java.io.BufferedReader
@@ -108,13 +107,12 @@ class EditAddressActivity : BaseActivity() {
 
     private fun deleteAddress() {
         //弹出dialog
-        val contentView = inflate(R.layout.edit_delete_layout)
-        val tvCancel = contentView.findViewById<TextView>(R.id.tv_cancel)
-        val tvConfirm = contentView.findViewById<TextView>(R.id.tv_confirm)
-        val dialog = CommonDialog.builder(this) {
-            this.view = contentView
+        val dialog = SmartDialog.builder(this){
+            this.resId = R.layout.edit_delete_layout
+            this.isAutoShow = true
         }
-        dialog.show()
+        val tvCancel = dialog.getView<TextView>(R.id.tv_cancel)
+        val tvConfirm = dialog.getView<TextView>(R.id.tv_confirm)
 
         tvCancel.setOnClickListener { dialog.dismiss() }
         tvConfirm.setOnClickListener {
