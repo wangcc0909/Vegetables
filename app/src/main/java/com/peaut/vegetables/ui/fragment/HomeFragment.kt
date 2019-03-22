@@ -1,11 +1,20 @@
 package com.peaut.vegetables.ui.fragment
 
+import android.Manifest
+import android.app.Activity
 import android.arch.lifecycle.ViewModel
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.view.View
 import android.widget.ImageButton
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import com.github.jdsjlzx.recyclerview.LRecyclerViewAdapter
+import com.google.zxing.activity.CaptureActivity
+import com.google.zxing.util.Constant
 import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.HomeAdapter
 import com.peaut.vegetables.model.HomeItem
@@ -29,6 +38,7 @@ class HomeFragment: BaseFragment(){
     private lateinit var mHomeCategory2: LinearLayout
     private lateinit var mHomeCategory3: LinearLayout
     private lateinit var ibMsg: ImageButton
+    private lateinit var ibScan: ImageButton
     private lateinit var mTvRcSearch: TextView
     override fun getLayoutId(): Int = R.layout.fm_home
 
@@ -45,6 +55,7 @@ class HomeFragment: BaseFragment(){
         mTvRcSearch = headBanner.findViewById(R.id.tv_rc_search)
         val mBanner = headBanner.findViewById<Banner>(R.id.mBanner)
         ibMsg = headBanner.findViewById(R.id.ib_msg)
+        ibScan = headBanner.findViewById(R.id.ib_scan)
         mHomeCategory1 = headBanner.findViewById(R.id.home_linearLayout1)
         mHomeCategory2 = headBanner.findViewById(R.id.home_linearLayout2)
         mHomeCategory3 = headBanner.findViewById(R.id.home_linearLayout3)
@@ -79,6 +90,47 @@ class HomeFragment: BaseFragment(){
         }
         ibMsg.setOnClickListener {
             requireActivity().startActivity<MessageActivity>()
+        }
+        ibScan.setOnClickListener { startQrCode() }
+    }
+
+    private fun startQrCode() {
+        if (ContextCompat.checkSelfPermission(
+                        requireContext(),
+                        Manifest.permission.CAMERA
+                ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(requireActivity(), Manifest.permission.CAMERA)) {
+                Toast.makeText(requireContext(), "请至权限中心打开本应用的相机访问权限", Toast.LENGTH_LONG).show()
+            }
+            // 申请权限
+            ActivityCompat.requestPermissions(requireActivity(), arrayOf(Manifest.permission.CAMERA), Constant.REQ_PERM_CAMERA)
+            return
+        }
+        val intent = Intent(requireContext(), CaptureActivity::class.java)
+        startActivityForResult(intent, Constant.REQ_QR_CODE)
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        when (requestCode) {
+            Constant.REQ_PERM_CAMERA -> {
+                if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    startQrCode()
+                } else {
+                    Toast.makeText(requireContext(), "请至权限中心打开本应用的相机访问权限", Toast.LENGTH_LONG).show()
+                }
+            }
+        }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == Constant.REQ_QR_CODE && resultCode == Activity.RESULT_OK) {
+            val bundle = data?.extras
+            val result = bundle?.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN)
+                    Toast.makeText(requireContext(),result?:"",Toast.LENGTH_SHORT).show()
+//            QRParserImp.getInstance(this).parse(result?:"未能扫描到数据")
         }
     }
 }
