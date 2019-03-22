@@ -3,6 +3,7 @@ package com.peaut.vegetables.util
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.support.annotation.DrawableRes
 import android.support.annotation.NonNull
 import android.support.v4.app.ActivityOptionsCompat
@@ -11,6 +12,7 @@ import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -204,4 +206,29 @@ fun String.isPhone(): Boolean {
 fun String.isURL(): Boolean {
     val p = "^(((https|http)?://)?([a-z0-9]+[.])|(www.))\\w+[.|\\/]([a-z0-9]{0,})?[[.]([a-z0-9]{0,})]+((/[\\S&&[^,;\u4E00-\u9FA5]]+)+)?([.][a-z0-9]{0,}+|/?)\$".toRegex()
     return matches(p)
+}
+
+fun String.isWebURL(): Boolean {
+    return Patterns.WEB_URL.matcher(this).matches()
+}
+
+/**
+ * Toggle a view's visibility
+ */
+fun View.toggleVisibility() : View {
+    visibility = if (visibility == View.VISIBLE) {
+        View.GONE
+    } else {
+        View.VISIBLE
+    }
+    return this
+}
+
+/**
+ * Extension method to check is aboveApi.
+ */
+inline fun aboveApi(api: Int, included: Boolean = false, block: () -> Unit) {
+    if (Build.VERSION.SDK_INT > if (included) api - 1 else api) {
+        block()
+    }
 }

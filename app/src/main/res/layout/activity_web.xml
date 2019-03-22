@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    tools:context=".qrhandle.activity.WebActivity">
+
+    <View
+        android:id="@+id/myStatusBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/padding_top"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:textSize="@dimen/sp_16"
+        android:gravity="center"
+        android:textColor="@color/color_37"
+        app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
+    <View
+        android:id="@+id/web_line_one"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0_5"
+        android:background="@color/color_f0"
+        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_2"
+        android:max="100"
+        android:visibility="gone"
+        android:progressDrawable="@drawable/common_progress_bg"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <WebView
+        android:id="@+id/webView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/web_line_one">
+    </WebView>
+
+</android.support.constraint.ConstraintLayout>

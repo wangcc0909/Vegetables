@@ -18,6 +18,7 @@ import com.google.zxing.util.Constant
 import com.peaut.vegetables.R
 import com.peaut.vegetables.adapter.HomeAdapter
 import com.peaut.vegetables.model.HomeItem
+import com.peaut.vegetables.qrhandle.QRParserImp
 import com.peaut.vegetables.ui.activity.CategoryVegetablesActivity
 import com.peaut.vegetables.ui.activity.MessageActivity
 import com.peaut.vegetables.ui.activity.SearchActivity
@@ -129,8 +130,7 @@ class HomeFragment: BaseFragment(){
         if (requestCode == Constant.REQ_QR_CODE && resultCode == Activity.RESULT_OK) {
             val bundle = data?.extras
             val result = bundle?.getString(Constant.INTENT_EXTRA_KEY_QR_SCAN)
-                    Toast.makeText(requireContext(),result?:"",Toast.LENGTH_SHORT).show()
-//            QRParserImp.getInstance(this).parse(result?:"未能扫描到数据")
+            QRParserImp.getInstance(requireContext()).parse(result?:"未能扫描到数据")
         }
     }
 }

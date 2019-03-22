@@ -23,5 +23,7 @@ class Constant{
         const val ACTION_NEW_ADDRESS = "com.peaut.vegetables.newAddress"
         const val ACTION_UPDATE_ADDRESS = "com.peaut.vegetables.updateAddress"
         const val ADDRESS_KEY = "address"
+        const val WEB_URL = "web_url"
+        const val QR_RESULT = "qr_result"
     }
 }
