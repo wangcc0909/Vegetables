@@ -89,6 +89,14 @@ class MainActivity : BaseActivity() {
         }
     }
 
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        val fragments = supportFragmentManager.fragments
+        for (fragment in fragments) {
+            fragment?.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        }
+    }
+
     override fun onBackPressed() {
         exit()
     }
