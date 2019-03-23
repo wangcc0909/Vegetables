@@ -109,7 +109,7 @@ class WebActivity : BaseActivity() {
             super.onReceivedError(view, request, error)
             if (request?.isForMainFrame == true) {
                 //这里显示自定义错误布局
-
+                progressBar.gone()
             }
         }
     }
