@@ -232,3 +232,23 @@ inline fun aboveApi(api: Int, included: Boolean = false, block: () -> Unit) {
         block()
     }
 }
+
+/**
+ * Show the view  (visibility = View.VISIBLE)
+ */
+fun View.show() : View {
+    if (visibility != View.VISIBLE) {
+        visibility = View.VISIBLE
+    }
+    return this
+}
+
+/**
+ * Gone the view. (visibility = View.Gone)
+ */
+fun View.gone() : View {
+    if (visibility != View.GONE) {
+        visibility = View.GONE
+    }
+    return this
+}

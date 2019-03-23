@@ -17,11 +17,25 @@
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_50"
-        android:textSize="@dimen/sp_16"
+        android:layout_height="@dimen/dp_45"
         android:gravity="center"
+        android:maxLines="2"
+        android:paddingEnd="@dimen/dp_50"
+        android:paddingStart="@dimen/dp_50"
         android:textColor="@color/color_37"
+        android:textSize="@dimen/sp_14"
         app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
+
+    <ImageButton
+        android:id="@+id/ib_back"
+        android:layout_width="@dimen/dp_45"
+        android:layout_height="@dimen/dp_45"
+        android:src="@drawable/ic_left_black"
+        tools:ignore="ContentDescription"
+        android:background="?android:attr/selectableItemBackground"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/myStatusBar"/>
+
     <View
         android:id="@+id/web_line_one"
         android:layout_width="match_parent"
@@ -35,8 +49,8 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_2"
         android:max="100"
-        android:visibility="gone"
         android:progressDrawable="@drawable/common_progress_bg"
+        android:visibility="gone"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <WebView
