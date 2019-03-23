@@ -1,6 +1,7 @@
 package com.peaut.vegetables.qrhandle.activity
 
 import android.annotation.SuppressLint
+import android.annotation.TargetApi
 import android.arch.lifecycle.ViewModel
 import android.graphics.Bitmap
 import android.net.http.SslError
@@ -96,7 +97,20 @@ class WebActivity : BaseActivity() {
         override fun onReceivedError(view: WebView?, errorCode: Int, description: String?, failingUrl: String?) {
             super.onReceivedError(view, errorCode, description, failingUrl)
 //                tv_title.text = "$errorCode $description"
+            aboveApi(Build.VERSION_CODES.M,true) {
+                return
+            }
             progressBar.gone()
+            //这里显示自定义错误布局
+        }
+
+        @TargetApi(Build.VERSION_CODES.M)
+        override fun onReceivedError(view: WebView?, request: WebResourceRequest?, error: WebResourceError?) {
+            super.onReceivedError(view, request, error)
+            if (request?.isForMainFrame == true) {
+                //这里显示自定义错误布局
+
+            }
         }
     }
 
