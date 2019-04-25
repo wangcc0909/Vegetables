@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment
 import android.view.View
 import android.widget.Toast
 import com.peaut.vegetables.R
+import com.peaut.vegetables.common.AppManager
 import com.peaut.vegetables.ui.fragment.CarFragment
 import com.peaut.vegetables.ui.fragment.HomeFragment
 import com.peaut.vegetables.ui.fragment.MeFragment
@@ -106,6 +107,7 @@ class MainActivity : BaseActivity() {
             Toast.makeText(this, "再按一次退出程序", Toast.LENGTH_SHORT).show()
             clickTime = System.currentTimeMillis()
         } else {
+            AppManager.instance.exitApp(this)
             this.finish()
         }
     }

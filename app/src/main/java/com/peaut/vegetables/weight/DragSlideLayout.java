@@ -249,7 +249,9 @@ public class DragSlideLayout extends ViewGroup {
         if (!isEnabled()) {
             return false;
         }
-        final int aciton = ev.getActionMasked();
+
+        final int aciton = MotionEventCompat.getActionMasked(ev);
+
         boolean shouldIntercept = false;
         switch (aciton) {
             case MotionEvent.ACTION_DOWN: {
