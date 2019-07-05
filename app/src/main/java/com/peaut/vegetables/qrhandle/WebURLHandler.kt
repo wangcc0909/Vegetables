@@ -13,7 +13,7 @@ import com.peaut.vegetables.util.isWebURL
  * @date on  2019/3/22  16:36
  */
 class WebURLHandler : QRHandler {
-    constructor(context: Context) : super(context)
+    constructor(context: Context) : this(context,null)
     constructor(context: Context, next: QRHandler?) : super(context, next)
 
     override fun handle(msg: String) {

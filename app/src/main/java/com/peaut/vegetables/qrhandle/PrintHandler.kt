@@ -24,6 +24,4 @@ class PrintHandler: QRHandler{
     override fun canHandle(msg: String): Boolean {
         return true
     }
-
-
 }
