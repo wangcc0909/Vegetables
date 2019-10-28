@@ -24,7 +24,6 @@
         android:text="你可能还想买"
         android:textSize="@dimen/sp_14"
         android:padding="@dimen/dp_15"
-        app:layout_constraintTop_toBottomOf="@id/like_empty"
         app:layout_constraintStart_toEndOf="@id/like_line_one"
         app:layout_constraintEnd_toStartOf="@id/like_line_two"/>
 
